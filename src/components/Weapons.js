@@ -52,8 +52,9 @@ class Weapons extends Component {
           if (item.properties) {
             properties = "";
             item.properties.map( property => {
-              properties += property.name;
+              properties += property.name + ", ";
             });
+            properties = properties.slice(0, -2);
           }
           return (
             <div key={item.index} className="weaponInfo">
@@ -76,7 +77,7 @@ class Weapons extends Component {
                   {ranged}
                   {thrown}
                   <span className="weaponStatName">Properties:</span>
-                  <span className="weaponStatValue">{properties}</span>
+                  <span className="weaponStatValue ">{properties}</span>
               </div>
             </div>
           );
