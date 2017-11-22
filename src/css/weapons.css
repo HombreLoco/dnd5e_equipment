@@ -4,16 +4,30 @@
   background-color: red;
   border: 1px solid black;
   margin-bottom: 20px;
+  padding: 5px;
+  /* position: relative; */
+}
+
+.weaponStats {
+  position: relative;
+  top: 0;
+  left: 20px;
 }
 
 .weaponName {
-
+  
 }
 
 .weaponCost {
-  width: 30px;
-  height: 30px;
-  background-color: white;
+  background-color: brown;
+  border: 1px solid black;
+  color: gold;
+  padding: 5px;
+  margin: 5px;
+  float: right;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .weaponDamage {

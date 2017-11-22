@@ -28,9 +28,14 @@ class Weapons extends Component {
       outputWeapons = equipment.map(item => {
         if (item.equipment_category.toUpperCase() === "WEAPON") {
           return (
-            <div key={item.index}>
-              <div className="weaponInfo">
+            <div key={item.index} className="weaponInfo">
+              <div className="weaponName">
                 {item.name}
+              </div>
+              <div className="weaponStats">
+                <span className="weaponCost">
+                  {item.cost.quantity} {item.cost.unit}
+                </span>
               </div>
             </div>
           );
