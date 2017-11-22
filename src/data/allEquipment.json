@@ -413,6 +413,8 @@
   "equipment_category": "Weapon",
   "weapon_category:": "Simple",
   "weapon_range": "Ranged",
+  "range_distance_normal": 80,
+  "range_distance_max": 320,
   "category_range": "Simple Ranged",
   "cost": {
   "quantity": 25,
@@ -493,6 +495,8 @@
   "equipment_category": "Weapon",
   "weapon_category:": "Simple",
   "weapon_range": "Ranged",
+  "range_distance_normal": 80,
+  "range_distance_max": 320,
   "category_range": "Simple Ranged",
   "cost": {
   "quantity": 25,
@@ -529,6 +533,8 @@
   "equipment_category": "Weapon",
   "weapon_category:": "Simple",
   "weapon_range": "Ranged",
+  "range_distance_normal": 30,
+  "range_distance_max": 120,
   "category_range": "Simple Ranged",
   "cost": {
   "quantity": 1,
@@ -1080,7 +1086,7 @@
   "dice_value": 6,
   "damage_type": {
   "url": "http://www.dnd5eapi.co/api/damage-types/12",
-  "name": "Slashing"
+  "name": "Piercing"
   }
   },
   "range": {
@@ -1213,6 +1219,8 @@
   "equipment_category": "Weapon",
   "weapon_category:": "Martial",
   "weapon_range": "Ranged",
+  "range_distance_normal": 25,
+  "range_distance_max": 100,
   "category_range": "Martial Ranged",
   "cost": {
   "quantity": 10,
@@ -1249,6 +1257,8 @@
   "equipment_category": "Weapon",
   "weapon_category:": "Martial",
   "weapon_range": "Ranged",
+  "range_distance_normal": 30,
+  "range_distance_max": 120,
   "category_range": "Martial Ranged",
   "cost": {
   "quantity": 75,
@@ -1289,6 +1299,8 @@
   "equipment_category": "Weapon",
   "weapon_category:": "Martial",
   "weapon_range": "Ranged",
+  "range_distance_normal": 100,
+  "range_distance_max": 400,
   "category_range": "Martial Ranged",
   "cost": {
   "quantity": 50,
@@ -1333,6 +1345,8 @@
   "equipment_category": "Weapon",
   "weapon_category:": "Martial",
   "weapon_range": "Ranged",
+  "range_distance_normal": 150,
+  "range_distance_max": 600,
   "category_range": "Martial Ranged",
   "cost": {
   "quantity": 50,

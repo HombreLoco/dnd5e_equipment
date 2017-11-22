@@ -8,26 +8,34 @@
   /* position: relative; */
 }
 
-.weaponStats {
-  position: relative;
-  top: 0;
-  left: 20px;
+.weaponName {
+  padding: 5px;
 }
 
-.weaponName {
-  
+.weaponStats {
+  position: relative;
+  background-color: brown;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.weaponStatName {
+  /* position: absolute; */
+  font-size: .5em;
+  /* top: 0; */
+}
+
+.weaponStatValue {
+  /* position: absolute; */
+  margin-left: 3px;
+  /* top: 10px; */
 }
 
 .weaponCost {
-  background-color: brown;
-  border: 1px solid black;
+  
+  
   color: gold;
-  padding: 5px;
-  margin: 5px;
-  float: right;
-  position: absolute;
-  right: 0;
-  top: 0;
+  
 }
 
 .weaponDamage {
