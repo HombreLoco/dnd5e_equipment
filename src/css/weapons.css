@@ -1,0 +1,29 @@
+.weaponInfo {
+  max-width: 300px;
+  min-height: 100px;
+  background-color: red;
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.weaponName {
+
+}
+
+.weaponCost {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+}
+
+.weaponDamage {
+
+}
+
+.weaponWeight {
+
+}
+
+.weaponProperties {
+
+}
