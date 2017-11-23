@@ -10,18 +10,23 @@ class WeaponTypeSection extends Component {
     super(props);
     this.state = {
       classNamesArray: ["panel"],
-      classNamesString: "panel"
+      classNamesString: "panel",
+      style: {maxHeight: "0px"},
+      hidden: false
     }
   }
 
   setAccordion = () => {
-    this.state.classNamesArray.push("active");
-    // var panel = this.nextElementSibling;
-    // if (panel.style.maxHeight){
-    //   panel.style.maxHeight = null;
-    // } else {
-    //   panel.style.maxHeight = panel.scrollHeight + "px";
-    // }
+    console.log("here");
+    // this.state.classNamesArray.push("active");
+    if (!this.state.hidden) {
+      this.state.style = {maxHeight: "0px"};
+      this.state.hidden = true;
+    } else {
+      this.state.style = {maxHeight: "100%"};
+      this.state.hidden = false;
+    }
+    this.setState({style: this.state.style, hidden: this.state.hidden});
   }
 
   componentDidMount() {
@@ -33,23 +38,9 @@ class WeaponTypeSection extends Component {
     return (
       <div>
         <div className="">
-          <div>
-            <button className="accordion" onClick={this.setAccordion()}>{this.props.title}</button>
-            <div className={this.state.classNamesString}>
-              {this.props.outputWeapons}
-            </div>
-          </div>
-          <button className="accordion">Simple Melee</button>
-          <div className="panel">
-          </div>
-          <button className="accordion">Simple Ranged</button>
-          <div className="panel">
-          </div>
-          <button className="accordion">Martial Melee</button>
-          <div className="panel">
-          </div>
-          <button className="accordion">Martial Ranged</button>
-          <div className="panel">
+          <button className="accordion" onClick={() => {this.setAccordion()}}>{this.props.title}</button>
+          <div className={this.state.classNamesString} style={this.state.style}>
+            {this.props.outputWeapons}
           </div>
         </div>
       </div>

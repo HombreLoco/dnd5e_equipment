@@ -86,22 +86,7 @@ class Weapons extends Component {
     return martialRangedCards;
   }
 
-  setAccordion = () => {
-    // this.classList.toggle("active");
-    // var panel = this.nextElementSibling;
-    // if (panel.style.maxHeight){
-    //   panel.style.maxHeight = null;
-    // } else {
-    //   panel.style.maxHeight = panel.scrollHeight + "px";
-    // }
-  }
-
   componentDidMount() {
-    this.getAllWeapons();
-    this.getSimpleMelee();
-    this.getSimpleRanged();
-    this.getMartialMelee();
-    this.getMartialRanged();
 
   }
 
@@ -121,28 +106,10 @@ class Weapons extends Component {
       <div>
         <div className="">
           <WeaponTypeSection outputWeapons={outputWeapons} title={"All Weapons"}/>
-          <div>
-            <button className={"accordion"} onClick={this.setAccordion(this)}>All Weapons</button>
-            <div className="panel">
-              {outputWeapons}
-            </div>
-          </div>
-          <button className="accordion">Simple Melee</button>
-          <div className="panel">
-            {this.getSimpleMelee()}
-          </div>
-          <button className="accordion">Simple Ranged</button>
-          <div className="panel">
-            {this.getSimpleRanged()}
-          </div>
-          <button className="accordion">Martial Melee</button>
-          <div className="panel">
-            {this.getMartialMelee()}
-          </div>
-          <button className="accordion">Martial Ranged</button>
-          <div className="panel">
-            {this.getMartialRanged()}
-          </div>
+          <WeaponTypeSection outputWeapons={this.getSimpleMelee()} title={"Simple Melee"}/>
+          <WeaponTypeSection outputWeapons={this.getSimpleRanged()} title={"Simple Ranged"}/>
+          <WeaponTypeSection outputWeapons={this.getMartialMelee()} title={"Martial Melee"}/>
+          <WeaponTypeSection outputWeapons={this.getMartialRanged()} title={"Martial Ranged"}/>
         </div>
       </div>
     );
