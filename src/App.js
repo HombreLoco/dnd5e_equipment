@@ -14,6 +14,21 @@ class App extends Component {
     }
   }
 
+  setNewStyles = () => {
+    var style = {
+      NotificationItem: { // Override the notification item
+        DefaultStyle: { // Applied to every notification, regardless of the notification level
+          margin: '10px 5px 2px 1px'
+        },
+    
+        success: { // Applied only to the success notification item
+          color: 'blue'
+        }
+      }
+    }
+    return style;
+  }
+
   getAllEquipment = () => {
     console.log("equipment: ", equipment);
   }
@@ -29,6 +44,7 @@ class App extends Component {
   componentDidMount() {
     this.getAllEquipment();
     this._notificationSystem = this.refs.notificationSystem;
+    this.setNewStyles();
   }
 
   render() {
@@ -36,7 +52,7 @@ class App extends Component {
       <div>
         <div>
           <button onClick={this._addNotification}>Add notification</button>
-          <NotificationSystem ref="notificationSystem" />
+          <NotificationSystem ref="notificationSystem" style={this.setNewStyles()}/>
         </div>
         <Weapons />
       </div>
