@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/weapons.css';
+import accordion from '../lib/accordion.js';
 import allEquipment from '../data/allEquipment.json';
 import WeaponCard from './WeaponCard.js';
 import WeaponTypeSection from './WeaponTypeSection.js';
@@ -13,6 +14,10 @@ class Weapons extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      classNamesArray: ["panel"],
+      classNamesString: "panel",
+      style: {maxHeight: "0px"},
+      hidden: false
     }
   }
 
@@ -84,6 +89,11 @@ class Weapons extends Component {
     return this.getWeaponsByClass(allEquipment, weaponClass);
   }
 
+  setAccordion = () => {
+    let accordionStatus = accordion.setAccordion(this.state.hidden);
+    this.setState({style: accordionStatus.style, hidden: accordionStatus.hidden});
+  }
+
   componentDidMount() {
 
   }
@@ -93,11 +103,14 @@ class Weapons extends Component {
     return (
       <div>
         <div className="">
-          <WeaponTypeSection outputWeapons={this.getAllWeapons()} title={"All Weapons"}/>
-          <WeaponTypeSection outputWeapons={this.getSimpleMelee()} title={"Simple Melee"}/>
-          <WeaponTypeSection outputWeapons={this.getSimpleRanged()} title={"Simple Ranged"}/>
-          <WeaponTypeSection outputWeapons={this.getMartialMelee()} title={"Martial Melee"}/>
-          <WeaponTypeSection outputWeapons={this.getMartialRanged()} title={"Martial Ranged"}/>
+          <button className="accordion" onClick={() => {this.setAccordion()}}>Weapons</button>
+          <div className={this.state.classNamesString} style={this.state.style}>
+            <WeaponTypeSection outputWeapons={this.getSimpleMelee()} title={"Simple Melee"}/>
+            <WeaponTypeSection outputWeapons={this.getSimpleRanged()} title={"Simple Ranged"}/>
+            <WeaponTypeSection outputWeapons={this.getMartialMelee()} title={"Martial Melee"}/>
+            <WeaponTypeSection outputWeapons={this.getMartialRanged()} title={"Martial Ranged"}/>
+            <WeaponTypeSection outputWeapons={this.getAllWeapons()} title={"All Weapons"}/>
+          </div>
         </div>
       </div>
     );

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import allEquipment from '../data/allEquipment.json';
 import accordion from '../lib/accordion.js';
 
 
