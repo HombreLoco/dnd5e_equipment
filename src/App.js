@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import NotificationSystem from 'react-notification-system';
 import './css/App.css';
-import equipment from './data/allEquipment.json';
-import Weapons from './components/Weapons.js';
+import allEquipment from './data/allEquipment.json';
+import Equipment from './components/Equipment.js';
 
 
 class App extends Component {
@@ -22,7 +22,8 @@ class App extends Component {
         },
     
         success: { // Applied only to the success notification item
-          color: 'blue'
+          "color": 'blue'
+
         }
       }
     }
@@ -30,7 +31,7 @@ class App extends Component {
   }
 
   getAllEquipment = () => {
-    console.log("equipment: ", equipment);
+    console.log("allEquipment: ", allEquipment);
   }
 
   _addNotification = (event) => {
@@ -54,7 +55,7 @@ class App extends Component {
           <button onClick={this._addNotification}>Add notification</button>
           <NotificationSystem ref="notificationSystem" style={this.setNewStyles()}/>
         </div>
-        <Weapons />
+        <Equipment />
       </div>
     );
   }

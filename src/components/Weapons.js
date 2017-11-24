@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import '../css/weapons.css';
-import equipment from '../data/allEquipment.json';
+import allEquipment from '../data/allEquipment.json';
 import WeaponCard from './WeaponCard.js';
 import WeaponTypeSection from './WeaponTypeSection.js';
 
+
+// TODO: dry up the get weapon functions below - 
+// TODO:
 
 
 class Weapons extends Component {
@@ -14,76 +17,72 @@ class Weapons extends Component {
     }
   }
 
+  getWeaponsByCategory = (data, weaponClass) => {
+    // data - is the "database"
+    // category - an object with two strings representing the weapon category and range (ex. let category = {category: "SIMPLE", range: "RANGED"})
+    let weaponList = [];
+    data.map(item => {
+      if (item.weapon_category) {
+        if ((item.weapon_category.toUpperCase() === weaponClass.category) && (item.weapon_range.toUpperCase() === weaponClass.range)) {
+          return weaponList.push(item);
+        } 
+      }
+    });
+    console.log("weaponList", weaponList);
+    let weaponListCards = [];
+    weaponListCards = weaponList.map(item => {
+      return <WeaponCard key={item.index} weapon={item} />
+    });
+    return weaponListCards;
+  }
+
   getAllWeapons = () => {
-    console.log("equipment: ", equipment);
+    if (allEquipment) {
+      let allWeapons = [];
+      allEquipment.map(item => {
+        if (item.equipment_category.toUpperCase() === "WEAPON") {
+          return allWeapons.push(item);
+        }
+      });
+      console.log("all weapons: ", allWeapons);
+      let allWeaponsCards = [];
+      allWeaponsCards = allWeapons.map(item => {
+        return <WeaponCard key={item.index} weapon={item} />
+      });
+      return allWeaponsCards;
+    }
   }
 
   getSimpleMelee = () => {
-    let simpleMelee = [];
-    equipment.map(item => {
-      if (item.weapon_category) {
-        if ((item.weapon_category.toUpperCase() === "SIMPLE") && (item.weapon_range.toUpperCase() === "MELEE")) {
-          return simpleMelee.push(item);
-        } 
-      }
-    });
-    console.log("simple melee", simpleMelee);
-    let simpleMeleeCards = [];
-    simpleMeleeCards = simpleMelee.map(item => {
-      return <WeaponCard key={item.index} weapon={item} />
-    });
-    return simpleMeleeCards;
+    let weaponClass = {
+      category: "SIMPLE",
+      range: "MELEE"
+    }
+    return this.getWeaponsByCategory(allEquipment, weaponClass);
   }
 
   getSimpleRanged = () => {
-    let simpleRanged = [];
-    equipment.map(item => {
-      if (item.weapon_category) {
-        if ((item.weapon_category.toUpperCase() === "SIMPLE") && (item.weapon_range.toUpperCase() === "RANGED")) {
-          return simpleRanged.push(item);
-        } 
-      }
-    });
-    console.log("simple ranged", simpleRanged);
-    let simpleRangedCards = [];
-    simpleRangedCards = simpleRanged.map(item => {
-      return <WeaponCard key={item.index} weapon={item} />
-    });
-    return simpleRangedCards;
+    let weaponClass = {
+      category: "SIMPLE",
+      range: "RANGED"
+    }
+    return this.getWeaponsByCategory(allEquipment, weaponClass);
   }
 
   getMartialMelee = () => {
-    let martialMelee = [];
-    equipment.map(item => {
-      if (item.weapon_category) {
-        if ((item.weapon_category.toUpperCase() === "MARTIAL") && (item.weapon_range.toUpperCase() === "MELEE")) {
-          return martialMelee.push(item);
-        } 
-      }
-    });
-    console.log("martial melee", martialMelee);
-    let martialMeleeCards = [];
-    martialMeleeCards = martialMelee.map(item => {
-      return <WeaponCard key={item.index} weapon={item} />
-    });
-    return martialMeleeCards;
+    let weaponClass = {
+      category: "MARTIAL",
+      range: "MELEE"
+    }
+    return this.getWeaponsByCategory(allEquipment, weaponClass);
   }
 
   getMartialRanged = () => {
-    let martialRanged = [];
-    equipment.map(item => {
-      if (item.weapon_category) {
-        if ((item.weapon_category.toUpperCase() === "MARTIAL") && (item.weapon_range.toUpperCase() === "RANGED")) {
-          return martialRanged.push(item);
-        } 
-      }
-    });
-    console.log("martial ranged", martialRanged);
-    let martialRangedCards = [];
-    martialRangedCards = martialRanged.map(item => {
-      return <WeaponCard key={item.index} weapon={item} />
-    });
-    return martialRangedCards;
+    let weaponClass = {
+      category: "MARTIAL",
+      range: "RANGED"
+    }
+    return this.getWeaponsByCategory(allEquipment, weaponClass);
   }
 
   componentDidMount() {
@@ -92,20 +91,10 @@ class Weapons extends Component {
 
   render() {
 
-    let outputWeapons;
-    
-    if (equipment.length > 0) {
-
-      outputWeapons = equipment.map(item => {
-        return <WeaponCard key={item.index} weapon={item}/>
-      });
-    }
-
-
     return (
       <div>
         <div className="">
-          <WeaponTypeSection outputWeapons={outputWeapons} title={"All Weapons"}/>
+          <WeaponTypeSection outputWeapons={this.getAllWeapons()} title={"All Weapons"}/>
           <WeaponTypeSection outputWeapons={this.getSimpleMelee()} title={"Simple Melee"}/>
           <WeaponTypeSection outputWeapons={this.getSimpleRanged()} title={"Simple Ranged"}/>
           <WeaponTypeSection outputWeapons={this.getMartialMelee()} title={"Martial Melee"}/>

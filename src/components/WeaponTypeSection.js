@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import equipment from '../data/allEquipment.json';
-import WeaponCard from './WeaponCard.js';
-
+import allEquipment from '../data/allEquipment.json';
+import accordion from '../lib/accordion.js';
 
 
 class WeaponTypeSection extends Component {
@@ -17,16 +16,8 @@ class WeaponTypeSection extends Component {
   }
 
   setAccordion = () => {
-    console.log("here");
-    // this.state.classNamesArray.push("active");
-    if (!this.state.hidden) {
-      this.state.style = {maxHeight: "0px"};
-      this.state.hidden = true;
-    } else {
-      this.state.style = {maxHeight: "100%"};
-      this.state.hidden = false;
-    }
-    this.setState({style: this.state.style, hidden: this.state.hidden});
+    let accordionStatus = accordion.setAccordion(this.state.hidden);
+    this.setState({style: accordionStatus.style, hidden: accordionStatus.hidden});
   }
 
   componentDidMount() {
