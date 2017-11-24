@@ -5,7 +5,6 @@ import WeaponCard from './WeaponCard.js';
 import WeaponTypeSection from './WeaponTypeSection.js';
 
 
-// TODO: dry up the get weapon functions below - 
 // TODO:
 
 
@@ -17,7 +16,7 @@ class Weapons extends Component {
     }
   }
 
-  getWeaponsByCategory = (data, weaponClass) => {
+  getWeaponsByClass = (data, weaponClass) => {
     // data - is the "database"
     // category - an object with two strings representing the weapon category and range (ex. let category = {category: "SIMPLE", range: "RANGED"})
     let weaponList = [];
@@ -58,7 +57,7 @@ class Weapons extends Component {
       category: "SIMPLE",
       range: "MELEE"
     }
-    return this.getWeaponsByCategory(allEquipment, weaponClass);
+    return this.getWeaponsByClass(allEquipment, weaponClass);
   }
 
   getSimpleRanged = () => {
@@ -66,7 +65,7 @@ class Weapons extends Component {
       category: "SIMPLE",
       range: "RANGED"
     }
-    return this.getWeaponsByCategory(allEquipment, weaponClass);
+    return this.getWeaponsByClass(allEquipment, weaponClass);
   }
 
   getMartialMelee = () => {
@@ -74,7 +73,7 @@ class Weapons extends Component {
       category: "MARTIAL",
       range: "MELEE"
     }
-    return this.getWeaponsByCategory(allEquipment, weaponClass);
+    return this.getWeaponsByClass(allEquipment, weaponClass);
   }
 
   getMartialRanged = () => {
@@ -82,7 +81,7 @@ class Weapons extends Component {
       category: "MARTIAL",
       range: "RANGED"
     }
-    return this.getWeaponsByCategory(allEquipment, weaponClass);
+    return this.getWeaponsByClass(allEquipment, weaponClass);
   }
 
   componentDidMount() {

@@ -4,6 +4,7 @@ module.exports = {
       style: {},
       hidden: false
     }
+    // the active class sets the color of the selected section header 
     // this.state.classNamesArray.push("active");
     if (!isHidden) {
       panel.style = {maxHeight: "0px"};
