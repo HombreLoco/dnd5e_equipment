@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/weapons.css';
 import accordion from '../lib/accordion.js';
 import allEquipment from '../data/allEquipment.json';
 import WeaponCard from './WeaponCard.js';
@@ -29,10 +28,14 @@ class Weapons extends Component {
       if (item.weapon_category) {
         if ((item.weapon_category.toUpperCase() === weaponClass.category) && (item.weapon_range.toUpperCase() === weaponClass.range)) {
           return weaponList.push(item);
-        } 
+        } else {
+          return null;
+        }
+      } else {
+        return null;
       }
     });
-    console.log("weaponList", weaponList);
+    // console.log("weaponList", weaponList);
     let weaponListCards = [];
     weaponListCards = weaponList.map(item => {
       return <WeaponCard key={item.index} weapon={item} />
@@ -46,6 +49,8 @@ class Weapons extends Component {
       allEquipment.map(item => {
         if (item.equipment_category.toUpperCase() === "WEAPON") {
           return allWeapons.push(item);
+        } else {
+          return null;
         }
       });
       console.log("all weapons: ", allWeapons);

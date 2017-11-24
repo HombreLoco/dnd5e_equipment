@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   getAllEquipment = () => {
-    console.log("allEquipment: ", allEquipment);
+    console.log("all equipment: ", allEquipment);
   }
 
   _addNotification = (event) => {

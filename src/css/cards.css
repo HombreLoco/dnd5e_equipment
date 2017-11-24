@@ -1,4 +1,4 @@
-.weaponInfo {
+.itemInfo {
   max-width: 300px;
   min-height: 100px;
   background-color: red;
@@ -8,30 +8,30 @@
   /* position: relative; */
 }
 
-.weaponName {
+.itemName {
   padding: 5px;
 }
 
-.weaponStats {
+.itemStats {
   position: relative;
   background-color: brown;
   border: 1px solid black;
   padding: 5px;
 }
 
-.weaponStatName {
+.statName {
   /* position: absolute; */
   font-size: .5em;
   /* top: 0; */
 }
 
-.weaponStatValue {
+.statValue {
   /* position: absolute; */
   margin-left: 3px;
   /* top: 10px; */
 }
 
-.weaponCost {
+.itemCost {
   
   
   color: gold;
@@ -42,7 +42,7 @@
 
 }
 
-.weaponWeight {
+.itemWeight {
 
 }
 
