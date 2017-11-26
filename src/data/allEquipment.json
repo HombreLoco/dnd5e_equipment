@@ -1718,50 +1718,54 @@
   },
   {
   "index": 54,
-  "name": "Arrow",
-  "equipment_category": "Adventuring Gear",
-  "gear_category": "Ammunition",
-  "cost": {
-  "quantity": 5,
-  "unit": "cp"
-  },
-  "weight": 1,
-  "url": "http://www.dnd5eapi.co/api/equipment/54"
-  },
-  {
-  "index": 55,
-  "name": "Blowgun needle",
-  "equipment_category": "Adventuring Gear",
-  "gear_category": "Ammunition",
-  "cost": {
-  "quantity": 2,
-  "unit": "cp"
-  },
-  "weight": 1,
-  "url": "http://www.dnd5eapi.co/api/equipment/55"
-  },
-  {
-  "index": 56,
-  "name": "Crossbow bolt",
-  "equipment_category": "Adventuring Gear",
-  "gear_category": "Ammunition",
-  "cost": {
-  "quantity": 5,
-  "unit": "cp"
-  },
-  "weight": 1.5,
-  "url": "http://www.dnd5eapi.co/api/equipment/56"
-  },
-  {
-  "index": 57,
-  "name": "Sling bullet",
+  "name": "Arrows (20)",
   "equipment_category": "Adventuring Gear",
   "gear_category": "Ammunition",
   "cost": {
   "quantity": 1,
+  "unit": "gp"
+  },
+  "weight": 1,
+  "quantity": 20,
+  "url": "http://www.dnd5eapi.co/api/equipment/54"
+  },
+  {
+  "index": 55,
+  "name": "Blowgun needles (50)",
+  "equipment_category": "Adventuring Gear",
+  "gear_category": "Ammunition",
+  "cost": {
+  "quantity": 1,
+  "unit": "gp"
+  },
+  "weight": 1,
+  "quantity": 50,
+  "url": "http://www.dnd5eapi.co/api/equipment/55"
+  },
+  {
+  "index": 56,
+  "name": "Crossbow bolts (20)",
+  "equipment_category": "Adventuring Gear",
+  "gear_category": "Ammunition",
+  "cost": {
+  "quantity": 1,
+  "unit": "gp"
+  },
+  "weight": 1.5,
+  "quantity": 20,
+  "url": "http://www.dnd5eapi.co/api/equipment/56"
+  },
+  {
+  "index": 57,
+  "name": "Sling bullets (20)",
+  "equipment_category": "Adventuring Gear",
+  "gear_category": "Ammunition",
+  "cost": {
+  "quantity": 4,
   "unit": "cp"
   },
   "weight": 1.5,
+  "quantity": 20,
   "url": "http://www.dnd5eapi.co/api/equipment/57"
   },
   {
@@ -1880,6 +1884,18 @@
   "unit": "gp"
   },
   "weight": 5,
+  "carry_capacity": [{
+    "quantity": 1,
+    "unit": "Cubic ft"
+  },
+  {
+    "quantity": 30,
+    "unit": "Lbs of gear"
+  }
+  ],
+  "desc": [
+    "You can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack."
+  ],
   "url": "http://www.dnd5eapi.co/api/equipment/65"
   },
   {
@@ -1909,6 +1925,15 @@
   "unit": "gp"
   },
   "weight": 70,
+  "carry_capacity": [{
+    "quantity": 40,
+    "unit": "Liquid gallons"
+  },
+  {
+    "quantity": 4,
+    "unit": "Cubic ft solid"
+  }
+],
   "url": "http://www.dnd5eapi.co/api/equipment/67"
   },
   {
@@ -1921,6 +1946,15 @@
   "unit": "sp"
   },
   "weight": 2,
+  "carry_capacity": [{
+    "quantity": 2,
+    "unit": "Cubic ft"
+  },
+  {
+    "quantity": 40,
+    "unit": "Lbs of gear"
+  }
+],
   "url": "http://www.dnd5eapi.co/api/equipment/68"
   },
   {
@@ -1999,6 +2033,11 @@
   "unit": "gp"
   },
   "weight": 2,
+  "carry_capacity": [{
+    "quantity": 1.5,
+    "unit": "Liquid pints"
+  }
+],
   "url": "http://www.dnd5eapi.co/api/equipment/74"
   },
   {
@@ -2011,6 +2050,15 @@
   "unit": "cp"
   },
   "weight": 2,
+  "carry_capacity": [{
+    "quantity": 3,
+    "unit": "Liquid gallons"
+  },
+  {
+    "quantity": 0.5,
+    "unit": "Cubic ft solid"
+  }
+],
   "url": "http://www.dnd5eapi.co/api/equipment/75"
   },
   {
@@ -2019,8 +2067,8 @@
   "equipment_category": "Adventuring Gear",
   "gear_category": "Standard Gear",
   "cost": {
-  "quantity": 5,
-  "unit": "cp"
+  "quantity": 1,
+  "unit": "gp"
   },
   "weight": 2,
   "desc": [
@@ -2041,6 +2089,24 @@
   "unit": "cp"
   },
   "weight": 0,
+  "duration": {
+    "quantity": 1,
+    "unit": "hour"
+  },
+  "illumination": [
+    {
+      "quantity": 5,
+      "unit": "ft",
+      "intensity": "Bright",
+      "cast_area": "Radius"
+    },
+    {
+      "quantity": 5,
+      "unit": "ft",
+      "intensity": "Dim",
+      "cast_area": "Radius"
+    }
+  ],
   "desc": [
   "For 1 hour, a candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet."
   ],
@@ -2056,6 +2122,10 @@
   "unit": "gp"
   },
   "weight": 1,
+  "quantity_capacity": [{
+    "quantity": 20,
+    "item": "bolts"
+  }],
   "desc": [
   "This wooden case can hold up to twenty crossbow bolts."
   ],
@@ -2071,6 +2141,15 @@
   "unit": "gp"
   },
   "weight": 1,
+  "quantity_capacity": 
+  [{
+    "quantity": 10,
+    "item": "rolled-up sheets of paper"
+  },
+  {
+    "quantity": 5,
+    "item": "rolled-up sheets of parchment"
+  }],
   "desc": [
   "This cylindrical leather case can hold up to ten rolled-up sheets of paper or five rolled-up sheets of parchment."
   ],
@@ -2086,9 +2165,14 @@
   "unit": "gp"
   },
   "weight": 10,
+  "length": {
+    "quantity": 10,
+    "unit": "ft"
+  },
   "desc": [
   "A chain has 10 hit points. It can be burst with a successful DC 20 Strength check."
   ],
+  "hit_points": 10,
   "url": "http://www.dnd5eapi.co/api/equipment/80"
   },
   {
@@ -2113,6 +2197,15 @@
   "unit": "gp"
   },
   "weight": 25,
+  "carry_capacity": [{
+    "quantity": 12,
+    "unit": "Cubic ft"
+  },
+  {
+    "quantity": 300,
+    "unit": "Lbs of gear"
+  }
+  ],
   "url": "http://www.dnd5eapi.co/api/equipment/82"
   },
   {
@@ -2294,6 +2387,11 @@
   "unit": "cp"
   },
   "weight": 1,
+  "carry_capacity": [{
+    "quantity": 1,
+    "unit": "Liquid pint"
+  }
+  ],
   "url": "http://www.dnd5eapi.co/api/equipment/95"
   },
   {
@@ -2413,6 +2511,11 @@
   "unit": "cp"
   },
   "weight": 4,
+  "carry_capacity": [{
+    "quantity": 1,
+    "unit": "Liquid gallon"
+  }
+  ],
   "url": "http://www.dnd5eapi.co/api/equipment/104"
   },
   {
@@ -2434,7 +2537,7 @@
   "index": 106,
   "name": "Disguise Kit",
   "equipment_category": "Tools",
-  "gear_category": "Other Tools",
+  "gear_category": "Kit",
   "cost": {
   "quantity": 25,
   "unit": "gp"
@@ -2449,7 +2552,7 @@
   "index": 107,
   "name": "Forgery Kit",
   "equipment_category": "Tools",
-  "gear_category": "Other Tools",
+  "gear_category": "Kit",
   "cost": {
   "quantity": 15,
   "unit": "gp"
@@ -2464,7 +2567,7 @@
   "index": 108,
   "name": "Herbalism Kit",
   "equipment_category": "Tools",
-  "gear_category": "Other Tools",
+  "gear_category": "Kit",
   "cost": {
   "quantity": 5,
   "unit": "gp"
@@ -2509,7 +2612,7 @@
   "index": 111,
   "name": "Poisoner’s Kit",
   "equipment_category": "Tools",
-  "gear_category": "Other Tools",
+  "gear_category": "Kit",
   "cost": {
   "quantity": 50,
   "unit": "gp"
@@ -2530,6 +2633,10 @@
   "unit": "sp"
   },
   "weight": 25,
+  "length": {
+    "quantity": 10,
+    "unit": "ft"
+  },
   "url": "http://www.dnd5eapi.co/api/equipment/112"
   },
   {
@@ -2542,6 +2649,25 @@
   "unit": "sp"
   },
   "weight": 1,
+  "duration": {
+    "quantity": 6,
+    "unit": "hour"
+  },
+  "illumination": [
+    {
+      "quantity": 15,
+      "unit": "ft",
+      "intensity": "Bright",
+      "cast_area": "Radius"
+    },
+    {
+      "quantity": 30,
+      "unit": "ft",
+      "intensity": "Dim",
+      "cast_area": "Radius"
+    }
+  ],
+  "fuel": "Oil (flask)",
   "desc": [
   "A lamp casts bright light in a 15-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil."
   ],
@@ -2557,6 +2683,25 @@
   "unit": "gp"
   },
   "weight": 2,
+  "duration": {
+    "quantity": 6,
+    "unit": "hour"
+  },
+  "illumination": [
+    {
+      "quantity": 60,
+      "unit": "ft",
+      "intensity": "Bright",
+      "cast_area": "Cone"
+    },
+    {
+      "quantity": 60,
+      "unit": "ft",
+      "intensity": "Dim",
+      "cast_area": "Cone"
+    }
+  ],
+  "fuel": "Oil (flask)",
   "desc": [
   "A bullseye lantern casts bright light in a 60-foot cone and dim light for an additional 60 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil."
   ],
@@ -2572,6 +2717,31 @@
   "unit": "gp"
   },
   "weight": 2,
+  "duration": {
+    "quantity": 6,
+    "unit": "hour"
+  },
+  "illumination": [
+    {
+      "quantity": 30,
+      "unit": "ft",
+      "intensity": "Bright",
+      "cast_area": "Radius"
+    },
+    {
+      "quantity": 30,
+      "unit": "ft",
+      "intensity": "Dim",
+      "cast_area": "Radius"
+    },
+    {
+      "quantity": 5,
+      "unit": "ft",
+      "intensity": "Hooded",
+      "cast_area": "Radius"
+    }
+  ],
+  "fuel": "Oil (flask)",
   "desc": [
   "A hooded lantern casts bright light in a 30-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius."
   ],
@@ -2740,6 +2910,10 @@
   "unit": "cp"
   },
   "weight": 7,
+  "length": {
+    "quantity": 10,
+    "unit": "ft"
+  },
   "url": "http://www.dnd5eapi.co/api/equipment/127"
   },
   {
@@ -2752,6 +2926,11 @@
   "unit": "gp"
   },
   "weight": 10,
+  "carry_capacity": [{
+    "quantity": 1,
+    "unit": "Liquid gallon"
+  }
+  ],
   "url": "http://www.dnd5eapi.co/api/equipment/128"
   },
   {
@@ -2779,6 +2958,15 @@
   "unit": "sp"
   },
   "weight": 1,
+  "carry_capacity": [{
+    "quantity": 0.2,
+    "unit": "Cubic ft"
+  },
+  {
+    "quantity": 6,
+    "unit": "Lbs of gear"
+  }
+],
   "desc": [
   "A cloth or leather pouch can hold up to 20 sling bullets or 50 blowgun needles, among other things. A compartmentalized pouch for holding spell components is called a component pouch (described earlier in this section)."
   ],
@@ -2794,6 +2982,10 @@
   "unit": "gp"
   },
   "weight": 1,
+  "quantity_capacity": [{
+    "quantity": 20,
+    "item": "arrows"
+  }],
   "desc": [
   "A quiver can hold up to 20 arrows."
   ],
@@ -2867,6 +3059,11 @@
   "unit": "gp"
   },
   "weight": 10,
+  "length": {
+    "quantity": 50,
+    "unit": "ft"
+  },
+  "hit_points": 2,
   "desc": [
   "Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check."
   ],
@@ -2882,6 +3079,11 @@
   "unit": "gp"
   },
   "weight": 5,
+  "length": {
+    "quantity": 50,
+    "unit": "ft"
+  },
+  "hit_points": 2,
   "desc": [
   "Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check."
   ],
@@ -2897,6 +3099,15 @@
   "unit": "cp"
   },
   "weight": 0.5,
+  "carry_capacity": [{
+      "quantity": 1,
+      "unit": "Cubic ft"
+    },
+    {
+      "quantity": 30,
+      "unit": "Lbs of gear"
+    }
+  ],
   "url": "http://www.dnd5eapi.co/api/equipment/138"
   },
   {
@@ -2991,14 +3202,15 @@
   },
   {
   "index": 146,
-  "name": "Spike, iron",
+  "name": "Spike, iron (10)",
   "equipment_category": "Adventuring Gear",
   "gear_category": "Standard Gear",
   "cost": {
   "quantity": 1,
-  "unit": "sp"
+  "unit": "gp"
   },
   "weight": 5,
+  "quantity": 10,
   "url": "http://www.dnd5eapi.co/api/equipment/146"
   },
   {
@@ -3072,11 +3284,16 @@
   "unit": "gp"
   },
   "weight": 0,
+  "carry_capacity": [{
+    "quantity": 4,
+    "unit": "Liquid ounces"
+  }
+],
   "url": "http://www.dnd5eapi.co/api/equipment/151"
   },
   {
   "index": 152,
-  "name": "Waterskin",
+  "name": "Waterskin (full)",
   "equipment_category": "Adventuring Gear",
   "gear_category": "Standard Gear",
   "cost": {
@@ -3084,6 +3301,11 @@
   "unit": "sp"
   },
   "weight": 5,
+  "carry_capacity": [{
+    "quantity": 4,
+    "unit": "Liquid pints"
+  }
+],
   "url": "http://www.dnd5eapi.co/api/equipment/152"
   },
   {
@@ -3110,50 +3332,62 @@
   "contents": [
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/65",
+  "index": 65,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/66",
+  "index": 66,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/77",
+  "index": 77,
   "quantity": 5
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/88",
+  "index": 88,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/97",
+  "index": 97,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/125",
+  "index": 125,
   "quantity": 10
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/115",
+  "index": 115,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/120",
+  "index": 120,
   "quantity": 2
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/133",
+  "index": 133,
   "quantity": 5
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/149",
+  "index": 149,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/152",
+  "index": 152,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/136",
+  "index": 136,
   "quantity": 1
   }
   ],
@@ -3171,46 +3405,57 @@
   "contents": [
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/82",
+  "index": 82,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/79",
+  "index": 79,
   "quantity": 2
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/85",
+  "index": 85,
   "quantity": 5
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/102",
+  "index": 102,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/103",
+  "index": 103,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/113",
+  "index": 113,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/120",
+  "index": 120,
   "quantity": 2
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/121",
+  "index": 121,
   "quantity": 5
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/123",
+  "index": 123,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/140",
+  "index": 140,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/144",
+  "index": 144,
   "quantity": 1
   }
   ],
@@ -3228,34 +3473,42 @@
   "contents": [
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/65",
+  "index": 65,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/88",
+  "index": 88,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/97",
+  "index": 97,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/125",
+  "index": 125,
   "quantity": 10
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/150",
+  "index": 150,
   "quantity": 10
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/133",
+  "index": 133,
   "quantity": 10
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/152",
+  "index": 152,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/136",
+  "index": 136,
   "quantity": 1
   }
   ],
@@ -3273,30 +3526,37 @@
   "contents": [
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/65",
+  "index": 65,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/69",
+  "index": 69,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/84",
+  "index": 84,
   "quantity": 2
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/77",
+  "index": 77,
   "quantity": 5
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/133",
+  "index": 133,
   "quantity": 5
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/152",
+  "index": 152,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/106",
+  "index": 106,
   "quantity": 1
   }
   ],
@@ -3314,34 +3574,42 @@
   "contents": [
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/65",
+  "index": 65,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/69",
+  "index": 69,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/110",
+  "index": 110,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/149",
+  "index": 149,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/150",
+  "index": 150,
   "quantity": 10
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/133",
+  "index": 133,
   "quantity": 10
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/152",
+  "index": 152,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/106",
+  "index": 106,
   "quantity": 1
   }
   ],
@@ -3359,26 +3627,32 @@
   "contents": [
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/65",
+  "index": 65,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/71",
+  "index": 71,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/77",
+  "index": 77,
   "quantity": 10
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/149",
+  "index": 149,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/133",
+  "index": 133,
   "quantity": 2
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/152",
+  "index": 152,
   "quantity": 1
   }
   ],
@@ -3396,22 +3670,27 @@
   "contents": [
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/65",
+  "index": 65,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/73",
+  "index": 73,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/102",
+  "index": 102,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/103",
+  "index": 103,
   "quantity": 1
   },
   {
   "item_url": "http://www.dnd5eapi.co/api/equipment/122",
+  "index": 122,
   "quantity": 10
   }
   ],
@@ -3895,7 +4174,7 @@
   "quantity": 50,
   "unit": "ft/round"
   },
-  "capacity": "480 lb.",
+  "capacity": 480,
   "url": "http://www.dnd5eapi.co/api/equipment/192"
   },
   {
@@ -3911,7 +4190,7 @@
   "quantity": 40,
   "unit": "ft/round"
   },
-  "capacity": "420 lb.",
+  "capacity": 420,
   "url": "http://www.dnd5eapi.co/api/equipment/193"
   },
   {
@@ -3927,7 +4206,7 @@
   "quantity": 40,
   "unit": "ft/round"
   },
-  "capacity": "420 lb.",
+  "capacity": 420,
   "url": "http://www.dnd5eapi.co/api/equipment/194"
   },
   {
@@ -3943,7 +4222,7 @@
   "quantity": 40,
   "unit": "ft/round"
   },
-  "capacity": "1,320 lb.",
+  "capacity": 1320,
   "url": "http://www.dnd5eapi.co/api/equipment/195"
   },
   {
@@ -3959,7 +4238,7 @@
   "quantity": 40,
   "unit": "ft/round"
   },
-  "capacity": "540 lb.",
+  "capacity": 540,
   "url": "http://www.dnd5eapi.co/api/equipment/196"
   },
   {
@@ -3975,7 +4254,7 @@
   "quantity": 60,
   "unit": "ft/round"
   },
-  "capacity": "480 lb.",
+  "capacity": 480,
   "url": "http://www.dnd5eapi.co/api/equipment/197"
   },
   {
@@ -3991,7 +4270,7 @@
   "quantity": 40,
   "unit": "ft/round"
   },
-  "capacity": "195 lb.",
+  "capacity": 195,
   "url": "http://www.dnd5eapi.co/api/equipment/198"
   },
   {
@@ -4007,7 +4286,7 @@
   "quantity": 40,
   "unit": "ft/round"
   },
-  "capacity": "225 lb.",
+  "capacity": 225,
   "url": "http://www.dnd5eapi.co/api/equipment/199"
   },
   {
@@ -4023,7 +4302,7 @@
   "quantity": 60,
   "unit": "ft/round"
   },
-  "capacity": "540 lb.",
+  "capacity": 540,
   "url": "http://www.dnd5eapi.co/api/equipment/200"
   },
   {
@@ -4216,6 +4495,7 @@
   "unit": "gp"
   },
   "weight": 1,
+  "riding_gear": true,
   "url": "http://www.dnd5eapi.co/api/equipment/213"
   },
   {
@@ -4228,6 +4508,7 @@
   "unit": "gp"
   },
   "weight": 600,
+  "vehicle_type": "Drawn",
   "url": "http://www.dnd5eapi.co/api/equipment/214"
   },
   {
@@ -4240,6 +4521,7 @@
   "unit": "gp"
   },
   "weight": 200,
+  "vehicle_type": "Drawn",
   "url": "http://www.dnd5eapi.co/api/equipment/215"
   },
   {
@@ -4252,6 +4534,7 @@
   "unit": "gp"
   },
   "weight": 100,
+  "vehicle_type": "Drawn",
   "url": "http://www.dnd5eapi.co/api/equipment/216"
   },
   {
@@ -4276,6 +4559,7 @@
   "unit": "gp"
   },
   "weight": 50,
+  "riding_gear": true,
   "desc": [
   "A military saddle braces the rider, helping you keep your seat on an active mount in battle. It gives you advantage on any check you make to remain mounted. An exotic saddle is required for riding any aquatic or flying mount."
   ],
@@ -4291,6 +4575,7 @@
   "unit": "gp"
   },
   "weight": 30,
+  "riding_gear": true,
   "desc": [
   "A military saddle braces the rider, helping you keep your seat on an active mount in battle. It gives you advantage on any check you make to remain mounted. An exotic saddle is required for riding any aquatic or flying mount."
   ],
@@ -4306,6 +4591,7 @@
   "unit": "gp"
   },
   "weight": 15,
+  "riding_gear": true,
   "desc": [
   "A military saddle braces the rider, helping you keep your seat on an active mount in battle. It gives you advantage on any check you make to remain mounted. An exotic saddle is required for riding any aquatic or flying mount."
   ],
@@ -4321,6 +4607,7 @@
   "unit": "gp"
   },
   "weight": 25,
+  "riding_gear": true,
   "url": "http://www.dnd5eapi.co/api/equipment/221"
   },
   {
@@ -4333,6 +4620,7 @@
   "unit": "gp"
   },
   "weight": 8,
+  "riding_gear": true,
   "url": "http://www.dnd5eapi.co/api/equipment/222"
   },
   {
@@ -4345,6 +4633,7 @@
   "unit": "gp"
   },
   "weight": 300,
+  "vehicle_type": "Drawn",
   "url": "http://www.dnd5eapi.co/api/equipment/223"
   },
   {
@@ -4369,6 +4658,7 @@
   "unit": "gp"
   },
   "weight": 400,
+  "vehicle_type": "Drawn",
   "url": "http://www.dnd5eapi.co/api/equipment/225"
   },
   {
@@ -4384,6 +4674,7 @@
   "quantity": 4,
   "unit": "mph"
   },
+  "vehicle_type": "Waterborne",
   "url": "http://www.dnd5eapi.co/api/equipment/251"
   },
   {
@@ -4402,6 +4693,7 @@
   "desc": [
   "Keelboats and rowboats are used on lakes and rivers. If going downstream, add the speed of the current (typically 3 miles per hour) to the speed of the vehicle. These vehicles can’t be rowed against any significant current, but they can be pulled upstream by draft animals on the shores. A rowboat weighs 100 pounds, in case adventurers carry it over land."
   ],
+  "vehicle_type": "Waterborne",
   "url": "http://www.dnd5eapi.co/api/equipment/252"
   },
   {
@@ -4417,6 +4709,7 @@
   "quantity": 3,
   "unit": "mph"
   },
+  "vehicle_type": "Waterborne",
   "url": "http://www.dnd5eapi.co/api/equipment/253"
   },
   {
@@ -4435,6 +4728,7 @@
   "desc": [
   "Keelboats and rowboats are used on lakes and rivers. If going downstream, add the speed of the current (typically 3 miles per hour) to the speed of the vehicle. These vehicles can’t be rowed against any significant current, but they can be pulled upstream by draft animals on the shores. A rowboat weighs 100 pounds, in case adventurers carry it over land."
   ],
+  "vehicle_type": "Waterborne",
   "url": "http://www.dnd5eapi.co/api/equipment/254"
   },
   {
@@ -4450,6 +4744,7 @@
   "quantity": 2,
   "unit": "mph"
   },
+  "vehicle_type": "Waterborne",
   "url": "http://www.dnd5eapi.co/api/equipment/255"
   },
   {
@@ -4465,6 +4760,7 @@
   "quantity": 2.5,
   "unit": "mph"
   },
+  "vehicle_type": "Waterborne",
   "url": "http://www.dnd5eapi.co/api/equipment/256"
   },
   {

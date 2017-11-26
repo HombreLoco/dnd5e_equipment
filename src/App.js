@@ -7,6 +7,8 @@ import Equipment from './components/Equipment.js';
 
 class App extends Component {
 
+  //TODO: check if each of the ...TypeSection.js components could be dryed up and reduced to one file that all equipment sections use.
+
   constructor(props) {
     super(props);
     this.state = {
