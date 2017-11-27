@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import accordion from '../lib/accordion.js';
+import componentProperties from '../lib/componentProperties.js';
 import allEquipment from '../data/allEquipment.json';
 import AdventuringGearCard from './AdventuringGearCard.js';
 import AdventuringGearTypeSection from './AdventuringGearTypeSection.js';
@@ -116,18 +116,11 @@ class AdventuringGear extends Component {
       gear_category: "KIT"
     }
     let aKits = this.getAdventuringGearByClass(allEquipment, adventuringGearClass);
+    console.log("aKits:", aKits);    
     let tKits = this.getAdventuringGearByClass(allEquipment, toolClass);
+    console.log("aKits:", aKits);    
     let allKits = aKits.concat(tKits);
-    allKits.sort(function(a,b) {
-      if (a.props.adventuringGear.name < b.props.adventuringGear.name) {
-        return -1;
-      }
-      if (a.props.adventuringGear.name > b.props.adventuringGear.name) {
-        return 1;
-      }
-      return 0;
-    });
-    return allKits;
+    return componentProperties.sortKitList(allKits);
   }
 
   getEquipmentPack = () => {
@@ -135,11 +128,11 @@ class AdventuringGear extends Component {
       equipment_category: "ADVENTURING GEAR",
       gear_category: "EQUIPMENT PACK"
     }
-    return this.getAdventuringGearByClass(allEquipment, adventuringGearClass);
+    return componentProperties.sortKitList(this.getAdventuringGearByClass(allEquipment, adventuringGearClass));
   }
 
   setAccordion = () => {
-    let accordionStatus = accordion.setAccordion(this.state.hidden);
+    let accordionStatus = componentProperties.setAccordion(this.state.hidden);
     this.setState({style: accordionStatus.style, hidden: accordionStatus.hidden});
   }
 

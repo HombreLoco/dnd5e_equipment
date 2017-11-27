@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import accordion from '../lib/accordion.js';
+import componentProperties from '../lib/componentProperties.js';
 
 
 class WeaponTypeSection extends Component {
@@ -15,7 +15,7 @@ class WeaponTypeSection extends Component {
   }
 
   setAccordion = () => {
-    let accordionStatus = accordion.setAccordion(this.state.hidden);
+    let accordionStatus = componentProperties.setAccordion(this.state.hidden);
     this.setState({style: accordionStatus.style, hidden: accordionStatus.hidden});
   }
 

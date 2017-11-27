@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import allEquipment from '../data/allEquipment.json';
 
 
 class AdventuringGearCard extends Component {
@@ -14,6 +14,7 @@ class AdventuringGearCard extends Component {
     //TODO: add variables for each item property that is not 
     //common to all (or almost all) items of that gear category.
 
+    let cost;
     let weight;
     let desc;
     let quantity;
@@ -24,7 +25,17 @@ class AdventuringGearCard extends Component {
     let carry_capacity;
     let length;
     let hit_points;
+    let equipmentPackList;
 
+    if (item.cost) {
+       cost = (
+        <span>
+          <span className="statName">Cost:</span>
+          <span className="statValue">{item.cost.quantity}&nbsp;{item.cost.unit}</span>
+          <br />
+        </span>
+      )
+    }
     if ((item.weight) || (item.weight === 0)) {
       weight = (
         <span>
@@ -133,7 +144,26 @@ class AdventuringGearCard extends Component {
           <span className="statValue">{item.hit_points}</span>
           <br />
         </span>
-      )
+      );
+    }
+    if (item.contents) {
+      let equipmentPackCards = [];
+      let lengthOfEquipmentList = allEquipment.length;
+      equipmentPackCards = item.contents.map(content => {
+        for (var i = 0; i < lengthOfEquipmentList; i++) {
+          if (allEquipment[i].index === content.index) {
+            return <AdventuringGearCard key={allEquipment[i].index} adventuringGear={allEquipment[i]} />
+
+          }
+        }
+      });
+      equipmentPackList = (
+        <span>
+          <span className="statName">Contents:</span>
+          <span className="statValue">{equipmentPackCards}</span>
+          <br />
+        </span>
+      );
     }
     return (
       <div key={item.index} className="itemInfo">
@@ -141,9 +171,7 @@ class AdventuringGearCard extends Component {
           {item.name} - {item.gear_category}
         </span>
         <div className="itemStats">
-          <span className="statName">Cost:</span>
-          <span className="statValue">{item.cost.quantity}&nbsp;{item.cost.unit}</span>
-          <br />
+          {cost}
           {weight}
           {length}
           {hit_points}
@@ -154,6 +182,7 @@ class AdventuringGearCard extends Component {
           {quantity_capacity}
           {carry_capacity}
           {desc}
+          {equipmentPackList}
         </div>
       </div>
     );

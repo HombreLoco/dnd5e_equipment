@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import accordion from '../lib/accordion.js';
+import componentProperties from '../lib/componentProperties.js';
 import allEquipment from '../data/allEquipment.json';
 import WeaponCard from './WeaponCard.js';
 import WeaponTypeSection from './WeaponTypeSection.js';
@@ -95,7 +95,7 @@ class Weapons extends Component {
   }
 
   setAccordion = () => {
-    let accordionStatus = accordion.setAccordion(this.state.hidden);
+    let accordionStatus = componentProperties.setAccordion(this.state.hidden);
     this.setState({style: accordionStatus.style, hidden: accordionStatus.hidden});
   }
 
