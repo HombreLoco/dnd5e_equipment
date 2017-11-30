@@ -153,7 +153,8 @@ class AdventuringGearCard extends Component {
         for (var i = 0; i < lengthOfEquipmentList; i++) {
           if (allEquipment[i].index === content.index) {
             return <AdventuringGearCard key={allEquipment[i].index} adventuringGear={allEquipment[i]} />
-
+          } else {
+            return null;
           }
         }
       });

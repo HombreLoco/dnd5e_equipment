@@ -2,16 +2,16 @@ module.exports = {
   setAccordion: function(isHidden) {
     let panel = {
       style: {},
-      hidden: false
+      hidden: true
     }
     // the active class sets the color of the selected section header 
     // this.state.classNamesArray.push("active");
-    if (!isHidden) {
+    if (isHidden) {
       panel.style = {maxHeight: "0px"};
-      panel.hidden = true;
+      panel.hidden = false;
     } else {
       panel.style = {maxHeight: "100%"};
-      panel.hidden = false;
+      panel.hidden = true;
     }
     return panel;
   },

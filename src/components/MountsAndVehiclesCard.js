@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import allEquipment from '../data/allEquipment.json';
 
 
-class ToolsCard extends Component {
+class MountsAndVehiclesCard extends Component {
 
   constructor(props) {
     super(props);
@@ -10,13 +10,13 @@ class ToolsCard extends Component {
     }
   }
 
-  createToolsCard = (item) => {
+  createMountsAndVehiclesCard = (item) => {
     //TODO: add variables for each item property that is not 
     //common to all (or almost all) items of that gear category.
 
     let cost;
-    let weight;
-    let desc;
+    let speed;
+    let capacity;
 
     if (item.cost) {
        cost = (
@@ -27,25 +27,20 @@ class ToolsCard extends Component {
         </span>
       )
     }
-    if ((item.weight) || (item.weight === 0)) {
-      weight = (
+    if (item.speed) {
+      speed = (
         <span>
-          <span className="statName">Weight:</span>
-          <span className="statValue">{item.weight}&nbsp;lb</span>
+          <span className="statName">Speed:</span>
+          <span className="statValue">{item.speed.quantity}&nbsp;{item.speed.unit}</span>
           <br />
         </span>
       )
     }
-    if (item.desc) {
-      let description = "";
-      item.desc.map( index => {
-        return description += index + ", ";
-      });
-      description = description.slice(0, -2);
-      desc = (
+    if (item.capacity) {
+      capacity = (
         <span>
-          <span className="statName">Description:</span>
-          <span className="statValue ">{description}</span>
+          <span className="statName">Carrying Capacity:</span>
+          <span className="statValue">{item.capacity}&nbsp;lb</span>
           <br />
         </span>
       )
@@ -53,12 +48,12 @@ class ToolsCard extends Component {
     return (
       <div key={item.index} className="itemInfo">
         <span className="itemName">
-          {item.name} - {item.tool_category || item.gear_category}
+          {item.name} - {item.vehicle_category}
         </span>
         <div className="itemStats">
           {cost}
-          {weight}
-          {desc}
+          {speed}
+          {capacity}
         </div>
       </div>
     );
@@ -72,11 +67,11 @@ class ToolsCard extends Component {
     return (
       <div>
         <div className="">
-          {this.createToolsCard(this.props.tools)}
+          {this.createMountsAndVehiclesCard(this.props.mountsAndVehicles)}
         </div>
       </div>
     );
   }
 }
 
-export default ToolsCard;
+export default MountsAndVehiclesCard;

@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import componentProperties from '../lib/componentProperties.js';
-import Weapons from './Weapons.js';
-import Armor from './Armor.js';
-import AdventuringGear from './AdventuringGear.js';
-import Tools from './Tools.js';
-import MountsAndVehicles from './MountsAndVehicles.js';
 
 
-class Equipment extends Component {
+class MountsAndVehiclesTypeSection extends Component {
 
   constructor(props) {
     super(props);
@@ -18,8 +13,6 @@ class Equipment extends Component {
       hidden: false
     }
   }
-
-  //TODO: add accordion to the weapon section within the equipment component
 
   setAccordion = () => {
     let accordionStatus = componentProperties.setAccordion(this.state.hidden);
@@ -35,20 +28,14 @@ class Equipment extends Component {
     return (
       <div>
         <div className="">
-          <button className="accordion" onClick={() => {this.setAccordion()}}>Equipment</button>
+          <button className="accordion" onClick={() => {this.setAccordion()}}>{this.props.title}</button>
           <div className={this.state.classNamesString} style={this.state.style}>
-            <Weapons />
-            <Armor />
-            <AdventuringGear />
-            <Tools />
-            <MountsAndVehicles />
+            {this.props.outputMountsAndVehicles}
           </div>
         </div>
-        
-
       </div>
     );
   }
 }
 
-export default Equipment;
+export default MountsAndVehiclesTypeSection;

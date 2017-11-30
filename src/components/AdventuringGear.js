@@ -115,10 +115,8 @@ class AdventuringGear extends Component {
       equipment_category: "TOOLS",
       gear_category: "KIT"
     }
-    let aKits = this.getAdventuringGearByClass(allEquipment, adventuringGearClass);
-    console.log("aKits:", aKits);    
-    let tKits = this.getAdventuringGearByClass(allEquipment, toolClass);
-    console.log("aKits:", aKits);    
+    let aKits = this.getAdventuringGearByClass(allEquipment, adventuringGearClass);  
+    let tKits = this.getAdventuringGearByClass(allEquipment, toolClass);   
     let allKits = aKits.concat(tKits);
     return componentProperties.sortKitList(allKits);
   }

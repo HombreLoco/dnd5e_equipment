@@ -46,11 +46,9 @@ class Tools extends Component {
       }
     });
     let toolsListCards = [];
-    console.log("toolsList:", toolsList);
     toolsListCards = toolsList.map(tool => {
       return <ToolsCard key={tool.index} tools={tool} />
     });
-    console.log("toolsListCards:", toolsListCards);
     return toolsListCards;
   }
 
@@ -115,11 +113,8 @@ class Tools extends Component {
       tool_category: "KIT"
     }
     var aKits = this.getToolsByClass(allEquipment, adventuringGearClass);
-    console.log("aKits:", aKits);
     var tKits = this.getToolsByClass(allEquipment, toolsClass);
-    console.log("tKits:", tKits);
     var allKits = aKits.concat(tKits);
-    console.log("allKits:", allKits);
     return componentProperties.sortKitList(allKits);
   }
 

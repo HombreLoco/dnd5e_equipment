@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-notification-system": "^0.2.16"
+    "react-notification-system": "^0.2.16",
+    "react-transition-group": "^2.2.1",
+    "reactstrap": "^4.8.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.17"
