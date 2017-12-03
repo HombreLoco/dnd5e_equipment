@@ -38,6 +38,9 @@ module.exports = {
       return 0;
     });
     return list;
+  },
+  rollDie: function(quantity, sides) {
+    
   }
 }
 

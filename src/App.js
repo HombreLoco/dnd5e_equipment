@@ -3,6 +3,7 @@ import NotificationSystem from 'react-notification-system';
 import './css/App.css';
 import allEquipment from './data/allEquipment.json';
 import Equipment from './components/Equipment.js';
+import AllDicePanel from './components/AllDicePanel.js';
 
 
 class App extends Component {
@@ -57,6 +58,7 @@ class App extends Component {
           <button onClick={this._addNotification}>Add notification</button>
           <NotificationSystem ref="notificationSystem" style={this.setNewStyles()}/>
         </div>
+        <AllDicePanel />
         <Equipment />
       </div>
     );
