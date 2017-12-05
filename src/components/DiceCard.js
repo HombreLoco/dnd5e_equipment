@@ -10,21 +10,16 @@ class DiceCard extends Component {
       dice: {
         sides: [4, 6, 8, 10, 12, 20, 100]
       },
-      dieSelected: 4,
       selectQuantityValue: 1,
       selectSidesValue: 4,
       sidesPanelVisible: false,
       sidesPanelStyle: {display: "none"},
     }
-    this.rollDice = this.rollDice.bind(this);
     this.hideSidesPopup = this.hideSidesPopup.bind(this);
     this.showSidesPopup = this.showSidesPopup.bind(this);
     this.handleSelectSides = this.handleSelectSides.bind(this);
+    this.handleUpdateDice =this.handleUpdateDice.bind(this);
     
-    
-  }
-
-  createDiceCard = (item) => {
   }
 
   displayDiceDropDown = () => {
@@ -38,24 +33,38 @@ class DiceCard extends Component {
     )
   }
 
+  handleUpdateDice = (die) => {
+
+    console.log("dicecard-die", die);
+    this.props.setDieProperties({sides: die.sides, quantity: die.quantity, index: die.index});
+  }
+
   handleSelectSides = (sides) => {
+    let currentDie = {
+      index: this.props.die.index,
+      sides: sides,
+      quantity: this.state.selectQuantityValue
+    }
     this.setState({selectSidesValue: sides});
+    
+    //then update die info on parent component- may need to be callback
+    this.handleUpdateDice(currentDie);
   }
 
-  rollDice = (sides, quantity) => {
-    alert("You throw the dice off the table...");
-  }
-
-  showQuantityPopup = () => {
-    // show the popup with a number selector
-    // maybe already have 
+  handleSelectQuantity = (quantity) => {
+    let currentDie = {
+      index: this.props.die.index,
+      sides: this.state.selectSidesValue,
+      quantity: quantity
+    }
+    this.setState({selectQuantityValue: quantity});
+    
+    //then update die info on parent component- may need to be callback
+    this.handleUpdateDice(currentDie);
   }
 
   createSidesPopup = () => {
     let diePanel;
-    // show the popup with a panel with each die on it (ex. "d4")
-    // loop to create panel, set default value of each item based on dice sides
-    // set state based on e.target.value of the onSelect property of each die type
     diePanel = this.state.dice.sides.map((numSide) => {
       return (
         <div className="sidesPanel centerText" key={numSide} defaultValue={numSide} onClick={() => {this.handleSelectSides(numSide);}}>
@@ -74,6 +83,12 @@ class DiceCard extends Component {
     return diePanel;
   }
 
+  hideSidesPopup = () => {
+    this.setState({sidesPanelVisible: false});
+    this.setState({sidesPanelStyle: {display: "none"}});
+    document.removeEventListener('click', this.hideSidesPopup, false);
+  }
+
   showSidesPopup = () => {
     if (!this.state.sidesPanelVisible) {
       this.setState({sidesPanelVisible: true});
@@ -82,10 +97,11 @@ class DiceCard extends Component {
     }
   }
 
-  hideSidesPopup = () => {
-    this.setState({sidesPanelVisible: false});
-    this.setState({sidesPanelStyle: {display: "none"}});
-    document.removeEventListener('click', this.hideSidesPopup, false);
+
+
+  showQuantityPopup = () => {
+    // show the popup with a number selector
+    // maybe already have 
   }
 
   componentDidMount() {
@@ -106,13 +122,7 @@ class DiceCard extends Component {
             d{this.state.selectSidesValue}
           </div>
         </div>
-        <div className="rollButton" onClick={() => {this.rollDice();}}>
-          <div className="centerText">
-            Roll
-          </div>
-        </div>
-        <div className="clear">
-        </div>
+        <div className="clear"></div>
       </div>
     );
   }
