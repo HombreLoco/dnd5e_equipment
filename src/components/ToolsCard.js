@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import allEquipment from '../data/allEquipment.json';
+// import allEquipment from '../data/allEquipment.json';
 
 
 class ToolsCard extends Component {

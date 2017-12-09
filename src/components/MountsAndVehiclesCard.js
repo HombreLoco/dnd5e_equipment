@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import allEquipment from '../data/allEquipment.json';
+// import allEquipment from '../data/allEquipment.json';
 
 
 class MountsAndVehiclesCard extends Component {
@@ -15,6 +15,7 @@ class MountsAndVehiclesCard extends Component {
     //common to all (or almost all) items of that gear category.
 
     let cost;
+    let weight;
     let speed;
     let capacity;
 
@@ -25,6 +26,15 @@ class MountsAndVehiclesCard extends Component {
           <span className="statValue">{item.cost.quantity}&nbsp;{item.cost.unit}</span>
           <br />
         </span>
+      )
+    }
+    if (item.weight) {
+      weight = (
+        <span>
+        <span className="statName">Weight:</span>
+        <span className="statValue">{item.weight} lb</span>
+        <br />
+      </span>
       )
     }
     if (item.speed) {
@@ -52,6 +62,7 @@ class MountsAndVehiclesCard extends Component {
         </span>
         <div className="itemStats">
           {cost}
+          {weight}
           {speed}
           {capacity}
         </div>
