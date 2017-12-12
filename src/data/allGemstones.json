@@ -1,0 +1,449 @@
+[
+  {
+    "name": "Azurite",
+    "desc": "opaque mottled deep blue",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 1
+  },
+  {
+    "name": "Banded Agate",
+    "desc": "translucent striped brown, blue, white, or red",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 2
+  },{
+    "name": "Blue Quartz",
+    "desc": "transparent pale blue",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 3
+  },{
+    "name": "Eye Agate",
+    "desc": "translucent circles of gray, white, brown, blue, or green",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 4
+  },{
+    "name": "Hematite",
+    "desc": "opaque gray-black",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 5
+  },{
+    "name": "Lapis Lazuli",
+    "desc": "opaque light and dark blue with yellow flecks",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 6
+  },{
+    "name": "Malachite",
+    "desc": "opaque striated light and dark green",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 7
+  },{
+    "name": "Moss Agate",
+    "desc": "translucent pink or yellow-white with mossy gray or green markings",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 8
+  },{
+    "name": "Obsidian",
+    "desc": "opaque black",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 9
+  },{
+    "name": "Rhondochrosite",
+    "desc": "opaque light pink",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 10
+  },{
+    "name": "Tiger Eye",
+    "desc": "translucent brown with golden center",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 11
+  },{
+    "name": "Turquoise",
+    "desc": "opaque light blue-green",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "dieSide": 12
+  },
+  {
+    "name": "Bloodstone",
+    "desc": "opaque dark gray with red flecks",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 1
+  },{
+    "name": "Carnelian",
+    "desc": "opaque orange to red-brown",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 2
+  },{
+    "name": "Chalcedony",
+    "desc": "opaque white",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 3
+  },{
+    "name": "Chrysoprase",
+    "desc": "translucent green",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 4
+  },{
+    "name": "Citrine",
+    "desc": "transparent pale yellow-brown",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 5
+  },{
+    "name": "Jasper",
+    "desc": "opaque blue, black, or brown",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 6
+  },{
+    "name": "Moonstone",
+    "desc": "translucent white with pale blue glow",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 7
+  },{
+    "name": "Onyx",
+    "desc": "opaque bands of black and white, or pure black or white",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 8
+  },{
+    "name": "Quartz",
+    "desc": "transparent white, smoky gray, or yellow",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 9
+  },{
+    "name": "Sardonyx",
+    "desc": "opaque bands of red and white",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 10
+  },{
+    "name": "Star Rose Quartz",
+    "desc": "translucent rosy stone with white star-shaped center",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 11
+  },{
+    "name": "Zircon",
+    "desc": "transparent pale blue-green",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "dieSide": 12
+  },
+  {
+    "name": "Amber",
+    "desc": "transparent watery gold to rich gold",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "dieSide": 1
+  },
+  {
+    "name": "Amethyst",
+    "desc": "transparent deep purple",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "dieSide": 2
+  },
+  {
+    "name": "Chrysoberyl",
+    "desc": "transparent yellow-green to pale green",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "dieSide": 3
+  },
+  {
+    "name": "Coral",
+    "desc": "opaque crimson",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "dieSide": 4
+  },
+  {
+    "name": "Garnet",
+    "desc": "transparent red, brown-green, or violet",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "dieSide": 5
+  },
+  {
+    "name": "Jade",
+    "desc": "translucent light green, deep green, or white",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "dieSide": 6
+  },
+  {
+    "name": "Jet",
+    "desc": "opaque deep black",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "dieSide": 7
+  },
+  {
+    "name": "Pearl",
+    "desc": "opaque lustrous white, yellow, or pink",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "dieSide": 8
+  },
+  {
+    "name": "Spinel",
+    "desc": "transparent red, red-brown, or deep green",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "dieSide": 9
+  },
+  {
+    "name": "Tourmaline",
+    "desc": "transparent pale green, blue, brown, or red",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "dieSide": 10
+  },
+  {
+    "name": "Alexandrite",
+    "desc": "transparent dark green",
+    "cost": {
+      "quantity": 500,
+      "unit": "gp"
+    },
+    "dieSide": 1
+  },
+  {
+    "name": "Aquamarine",
+    "desc": "transparent pale blue-green",
+    "cost": {
+      "quantity": 500,
+      "unit": "gp"
+    },
+    "dieSide": 2
+  },
+  {
+    "name": "Black Pearl",
+    "desc": "opaque pure black",
+    "cost": {
+      "quantity": 500,
+      "unit": "gp"
+    },
+    "dieSide": 3
+  },
+  {
+    "name": "Blue Spinel",
+    "desc": "transparent deep blue",
+    "cost": {
+      "quantity": 500,
+      "unit": "gp"
+    },
+    "dieSide": 4
+  },
+  {
+    "name": "Peridot",
+    "desc": "transparent rich olive green",
+    "cost": {
+      "quantity": 500,
+      "unit": "gp"
+    },
+    "dieSide": 5
+  },
+  {
+    "name": "Topaz",
+    "desc": "transparent golden yellow",
+    "cost": {
+      "quantity": 500,
+      "unit": "gp"
+    },
+    "dieSide": 6
+  },
+  {
+    "name": "Black Opal",
+    "desc": "translucent dark green with black mottling and golden flecks",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "dieSide": 1
+  },
+  {
+    "name": "Blue Sapphire",
+    "desc": "translucent blue-white to medium blue",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "dieSide": 2
+  },
+  {
+    "name": "Emerald",
+    "desc": "transparent deep bright green",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "dieSide": 3
+  },
+  {
+    "name": "Fire Opal",
+    "desc": "translucent fiery red",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "dieSide": 4
+  },
+  {
+    "name": "Opal",
+    "desc": "translucent pale blue with green and golden mottling",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "dieSide": 5
+  },
+  {
+    "name": "Star Ruby",
+    "desc": "translucent ruby with white star-shaped center",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "dieSide": 6
+  },
+  {
+    "name": "Star Sapphire",
+    "desc": "translucent blue sapphire with white star-shaped center",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "dieSide": 7
+  },
+  {
+    "name": "Yellow Sapphire",
+    "desc": "transparent fiery yellow or yellow-green",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "dieSide": 8
+  },
+  {
+    "name": "Black Sapphire",
+    "desc": "translucent lustrous black with glowing highlights",
+    "cost": {
+      "quantity": 5000,
+      "unit": "gp"
+    },
+    "dieSide": 1
+  },
+  {
+    "name": "Diamond",
+    "desc": "transparent blue-white, canary, pink, brown, or blue",
+    "cost": {
+      "quantity": 5000,
+      "unit": "gp"
+    },
+    "dieSide": 2
+  },
+  {
+    "name": "Jacinth",
+    "desc": "transparent fiery orange",
+    "cost": {
+      "quantity": 5000,
+      "unit": "gp"
+    },
+    "dieSide": 3
+  },
+  {
+    "name": "Ruby",
+    "desc": "transparent clear red to deep crimson",
+    "cost": {
+      "quantity": 5000,
+      "unit": "gp"
+    },
+    "dieSide": 4
+  }
+]

@@ -11,12 +11,14 @@ class DiceCard extends Component {
       },
       selectSidesValue: 4,
       selectQuantityValue: 1,
+      selectBonusValue: 0,
       sidesPanelVisible: false,
       quantityPanelVisible: false,
+      bonusPanelVisible: false,
       sidesPanelStyle: {display: "none"},
       quantityPanelStyle: {display: "none"},
-      showRemoveIcon: {display: "none"}
-      
+      bonusPanelStyle: {display: "none"},
+      showDieButtons: {display: "none"}
     }
     this.hideSidesPopup = this.hideSidesPopup.bind(this);
     this.hideQuantityPopup = this.hideQuantityPopup.bind(this);
@@ -81,7 +83,7 @@ class DiceCard extends Component {
     });
     sidePanel = (
       <div className="sidesPopupPanel" style={this.state.sidesPanelStyle} ref={node => {this.node = node;}}>
-        <div className="sidesLabel"># of Dice</div>
+        <div className="sidesLabel">Type of Die</div>
         {sidePanel}
         <div className="sidesPanel centerText" key={"43767574446f"}>
           Cust
@@ -132,9 +134,11 @@ class DiceCard extends Component {
         {quantityPanel}
         <div className="quantityInputLabel"># of Dice</div>
         <div>
-          <input type="button" className="quantityInputButton" value="+" onClick={() => {
+          <button type="button" className="quantityInputButton" onClick={() => {
             this.hideQuantityPopup();
-          }}/>
+          }}>
+            <i className="fa fa-check-circle" aria-hidden="true"></i>
+          </button>
           <div className="quantityDiv">
             <input className="quantityInput" type="number" defaultValue={this.state.selectQuantityValue} min="1" required 
               onChange={(e) => {
@@ -159,14 +163,73 @@ class DiceCard extends Component {
     )
   }
 
+  clickedOffBonusInput = (e) => {
+    if (!this.isDecendant(this.refs.bonusPopup, e.target)) {
+      this.hideBonusPopup();
+    }
+  }
+
+  hideBonusPopup = () => {
+    this.setState({bonusPanelVisible: false});
+    this.setState({bonusPanelStyle: {display: "none"}});
+    document.removeEventListener('click', this.clickedOffBonusInput, false);
+  }
+
+  showBonusPopup = () => {
+    if (!this.state.bonusPanelVisible) {
+      this.setState({bonusPanelVisible: true});
+      this.setState({bonusPanelStyle: {}});
+      document.addEventListener('click', this.clickedOffBonusInput, false);
+    }
+  }
+
+  createBonusPopup = () => {
+    let bonusPanel;
+    return (
+      <div className="bonusPopupPanel" style={this.state.bonusPanelStyle} ref="bonusPopup" 
+      onClick={(e) => {
+        e.stopPropagation();
+      }}>
+        {bonusPanel}
+        <div className="bonusInputLabel">Modifier</div>
+        <div>
+          <button type="button" className="bonusInputButton" onClick={() => {
+            this.hideBonusPopup();
+          }}>
+            <i className="fa fa-check-circle" aria-hidden="true"></i>
+          </button>
+          <div className="bonusDiv">
+            <input className="bonusInput" type="number" defaultValue={this.state.selectBonusValue}
+              onChange={(e) => {
+                const re = /-?\d+/;
+                if ((e.target.value !== '' || e.target.value !== null) && re.test(e.target.value)) {
+                  let userInput = parseInt(e.target.value, 10);
+                  if (!isNaN(userInput)) {
+                    this.setState({selectBonusValue: userInput});
+                  }
+                } else {
+                  e.preventDefault();
+                }
+              }}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  this.hideBonusPopup();
+                }
+              }}/>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   componentDidMount() {
   }
 
   render() {
 
     return (
-      <div onMouseEnter={() => {this.setState({showRemoveIcon: {display: ""}})}}
-        onMouseLeave={() => {this.setState({showRemoveIcon: {display: "none"}})}}
+      <div onMouseLeave={() => {this.setState({showDieButtons: {display: "none"}})}}
+        onMouseOver={() => {this.setState({showDieButtons: {display: ""}})}}
       >
         <div className="dieQuantity" onClick={() => {this.showQuantityPopup();}}>
           {this.createQuantityPopup()}
@@ -180,17 +243,33 @@ class DiceCard extends Component {
             d{this.state.selectSidesValue}
           </div>
         </div>
-        <div className="removeDie" style={this.state.showRemoveIcon} onClick={() => {
-          if (this.state.sidesPanelVisible) {
-            this.hideSidesPopup();
-          } else if (this.state.quantityPanelVisible) {
-            this.hideQuantityPopup();
-          }
-          this.props.removeDieFromRoll(this.props.die);
-        }}>
-          {/* <div className=""> */}
-            <i className="fa fa-trash" aria-hidden="true"></i>
-          {/* </div> */}
+        <div className="rollBonus" onClick={() => {this.showBonusPopup();}}>
+          {this.createBonusPopup()}
+          <div className="centerText">
+            {this.state.selectBonusValue}
+          </div>
+        </div>
+        <div className="dieButtons" style={this.state.showDieButtons} >
+          <div className="removeDie" onClick={() => {
+            if (this.state.sidesPanelVisible) {
+              this.hideSidesPopup();
+            } else if (this.state.quantityPanelVisible) {
+              this.hideQuantityPopup();
+            }
+            this.props.removeDieFromRoll(this.props.die);
+          }}>
+              <i className="fa fa-trash" aria-hidden="true"></i>
+          </div>
+          <div className="rollSingleDie" onClick={() => {
+            if (this.state.sidesPanelVisible) {
+              this.hideSidesPopup();
+            } else if (this.state.quantityPanelVisible) {
+              this.hideQuantityPopup();
+            }
+            this.props.rollSingleDie(this.props.die.index);
+          }}>
+            <i className="fa fa-share-square-o" aria-hidden="true"></i>
+          </div>
         </div>
         <div className="clear"></div>
       </div>

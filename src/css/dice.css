@@ -17,6 +17,11 @@
   position: relative;
 }
 
+.rollDieText {
+  text-align: center;
+  vertical-align: middle;
+}
+
 .centerText {
   text-align: center;
   vertical-align: middle;
@@ -102,7 +107,7 @@
 .quantityInputButton {
   float: right;
   margin: 5px 5px 5px 0;
-  padding: 0 5px 0 5px;
+  padding: 5px;
 }
 
 .quantityInputLabel {
@@ -110,13 +115,34 @@
   font-size: .7em;
 }
 
+/*add hover background color change to components*/
+
+.dieButtons {
+  position: relative;
+  float: left
+}
+
 .removeDie {
+  position: absolute;
+  top: 27px;
   width: 20px;
   height: 20px;
   background-color: lightseagreen;
   margin: 10px 0;
   padding: 3.7px 5.2px;
-  float: left;
+  /* float: left; */
+  border-radius: 15px;
+}
+
+.rollSingleDie {
+  position: absolute; 
+  top: 3px; 
+  width: 20px;
+  height: 20px;
+  background-color: lightseagreen;
+  margin: 10px 0;
+  padding: 5px 5.2px;
+  /* float: left; */
   border-radius: 15px;
 }
 
@@ -124,3 +150,53 @@ i {
   float: left;
   font-size: .8em !important; 
 }
+
+.rollAllDiceIcon {
+  float: right;
+  margin: 8px 2px 0 0;
+
+}
+
+.rollBonus {
+  width: 50px;
+  height: 50px;
+  background-color: lightseagreen;
+  margin: 10px;
+  float: left;
+  position: relative;
+}
+
+.bonusPopupPanel {
+  position: absolute;
+  width: 95px;
+  /* height: 96px; */
+  border: 1px solid #167c75;
+  background-color: #88fff5;
+  border-radius: 5px;
+  padding: 2px;
+  top: 35px;
+  left: 35px;
+  z-index: 1;
+}
+
+.bonusInputLabel {
+  margin: 2px 5px 0 5px;
+  font-size: .7em;
+}
+
+.bonusInputButton {
+  float: right;
+  margin: 5px 5px 5px 0;
+  padding: 5px;
+}
+
+.bonusDiv {
+  overflow: hidden;
+  padding: 5px;
+  /* padding-right: .5em; */
+}
+
+.bonusInput {
+  width: 50px;
+}
+

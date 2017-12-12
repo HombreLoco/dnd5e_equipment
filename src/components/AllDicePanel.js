@@ -15,7 +15,7 @@ class AllDicePanel extends Component {
       allDiceCards: []
     }
 
-    this.rollDice = this.rollDice.bind(this);
+    this.rollAllDice = this.rollAllDice.bind(this);
     
   }
   
@@ -55,6 +55,16 @@ class AllDicePanel extends Component {
       }
     }
   }
+
+  rollSingleDie = (dieIndex) => {
+    for (var i = 0; i < this.state.allDice.length; i++) {
+      if (dieIndex === this.state.allDice[i].index) {
+        this.rollDie(this.state.allDice[i]);
+        // this.setState({allDice: this.state.allDice});
+        this.createDiceCardPanel();
+      }
+    }
+  }
   
   addDieToRoll = () => {
     let newDie = {
@@ -73,22 +83,74 @@ class AllDicePanel extends Component {
     let newDice;
     newDice = this.state.allDice.map((die) => {
       return (
-        <DiceCard key={die.index} die={die} setDieProperties={this.setDieProperties} removeDieFromRoll={this.removeDieFromRoll}/>
+        <DiceCard key={die.index} die={die} setDieProperties={this.setDieProperties} removeDieFromRoll={this.removeDieFromRoll} rollSingleDie={this.rollSingleDie}/>
       )
     });
     this.setState({allDiceCards: newDice});
   }
 
-  rollDice = (sides, quantity) => {
+  rollDie = (die) => {
     // write dice roll code to get random number for each 
     // side of the die and then take which ever has the 
     // highest number
 
-    alert("You throw the dice off the table...");
+    let dieSides = [];
+    let tempRollResult = 0;
+    let selectedSide = 0;
+
+    for (var i = 1; i <= die.sides; i++) {
+      dieSides.push({
+        sideNumber: i,
+        rollResult: Math.random() * Math.random()
+      });
+    }
+    for (var j = 0; j < dieSides.length; j++) {
+      if (dieSides[j].rollResult > tempRollResult) {
+        tempRollResult = dieSides[j].rollResult;
+        selectedSide = dieSides[j].sideNumber;
+      }
+    }
+    return selectedSide;
+  }
+
+  rollAllDice = () => {
+    // currently this function is testing rolls and printing out 
+    // results for how many times each side is rolled for a given
+    // amount of total rolls (testing shows that each side is coming
+    // up at the proper average)
+    let allRolls = [];
+    let allRollsCount = [];
+    for (var i = 0; i < 10000; i++) {
+      allRolls.push(this.rollDie({sides: 100}));
+    }
+    console.log("allRolls: ", allRolls);
+
+    for (var j = 0; j < allRolls.length; j++) {
+      if (allRollsCount.length > 0) {
+        let found;
+        for (var k = 0; k < allRollsCount.length; k++) {
+          found = false;
+          if (allRolls[j] === allRollsCount[k].side) {
+            allRollsCount[k].count += 1;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          allRollsCount.push({side: allRolls[j], count: 1});
+        }
+      } else {
+        allRollsCount.push({side: allRolls[j], count: 1})
+      }
+    }
+    console.log("allRollsCount: ", allRollsCount);
+
+    // alert("You throw the dice off the table...");
   }
 
   componentDidMount() {
     this.addDieToRoll();
+    this.rollAllDice();
   }
 
   render() {
@@ -97,10 +159,11 @@ class AllDicePanel extends Component {
       <div>
         <div className="dicePanel">
           <div>
-            <div className="rollButton" onClick={() => {this.rollDice();}}>
-              <div className="centerText">
-                Roll
+            <div className="rollButton" onClick={() => {this.rollAllDice();}}>
+              <div className="rollDieText">
+                Roll All Dice <span><i className="fa fa-share-square-o rollAllDiceIcon" aria-hidden="true"></i></span>
               </div>
+              
             </div>
           </div>
           <div className="clear"></div>
