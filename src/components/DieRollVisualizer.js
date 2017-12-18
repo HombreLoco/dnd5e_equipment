@@ -17,10 +17,70 @@ class DieRollVisualizer extends Component {
 
 
   
-
+  displayRollResults = () => {
+    let count = 0;
+    let results = this.props.rolls.map((roll) => {
+      if (count === this.props.rolls.length - 1) {
+        count++;
+        return (
+          <div key={count}>
+            <div className="floatLeft">
+              <div className="rollSides">
+                d{roll.die.sides}
+              </div>
+              <div className="rollResult">
+                {roll.sideSelected}
+              </div>
+            </div>
+            <div className="floatLeft">
+                <div className="rollSides">
+                  =
+                </div>
+                <div className="rollResult">
+                  =
+                </div>
+              </div>
+            <div className="floatLeft">
+              <div className="rollSides">
+                Total
+              </div>
+              <div className="rollResult">
+                {this.props.total}
+              </div>
+            </div>
+          </div>
+        )
+      } else {
+        count++;
+        return (
+          <div key={count}>
+            <div className="floatLeft">
+              <div className="rollSides">
+                d{roll.die.sides}
+              </div>
+              <div className="rollResult">
+                {roll.sideSelected}
+              </div>
+            </div>
+              <div className="floatLeft">
+                <div className="rollSides">
+                  +
+                </div>
+                <div className="rollResult">
+                  +
+                </div>
+              </div>
+          </div>
+        )
+      }
+      
+    });
+    return results;
+  }
   
 
   componentDidMount() {
+    console.log("props: ", this.props);
 
   }
 
@@ -29,8 +89,10 @@ class DieRollVisualizer extends Component {
     // roll results
 
     return (
-      <div>
-        Hi
+      <div className="rollResultSection">
+        {this.displayRollResults()}
+        <div className="clear">
+        </div>
       </div>
     );
   }
