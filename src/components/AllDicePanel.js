@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import componentProperties from '../lib/componentProperties.js';
 // import allEquipment from '../data/allEquipment.json';
 import DiceCard from './DiceCard.js';
+import DieRollVisualizer from './DieRollVisualizer.js';
 
 // TODO:
 
@@ -14,15 +15,8 @@ class AllDicePanel extends Component {
       allDice: [],
       allDiceCards: []
     }
-
     this.rollAllDice = this.rollAllDice.bind(this);
-    
   }
-  
-
-  
-
-  
 
   //TODO: create ability for multiple dice rolling at one time
   // Only have one roll button, one button to add another die,
@@ -37,8 +31,9 @@ class AllDicePanel extends Component {
         if (die.index === this.state.allDice[i].index) {
           this.state.allDice[i].sides = die.sides;
           this.state.allDice[i].quantity = die.quantity;
+          this.state.allDice[i].modifier = die.modifier;
           this.setState({
-            allDice: this.state.allDice,
+            allDice: this.state.allDice
 
           });
         }
@@ -59,9 +54,10 @@ class AllDicePanel extends Component {
   rollSingleDie = (dieIndex) => {
     for (var i = 0; i < this.state.allDice.length; i++) {
       if (dieIndex === this.state.allDice[i].index) {
-        this.rollDie(this.state.allDice[i]);
+        let roll = this.rollQuantityOfDice(this.state.allDice[i]);
         // this.setState({allDice: this.state.allDice});
         this.createDiceCardPanel();
+        return roll;
       }
     }
   }
@@ -70,6 +66,7 @@ class AllDicePanel extends Component {
     let newDie = {
       sides: 4,
       quantity: 1,
+      modifier: 0,
       index: Math.random()
     }
 
@@ -113,6 +110,34 @@ class AllDicePanel extends Component {
     return selectedSide;
   }
 
+  rollQuantityOfDice = (die) => {
+    // Perform rolling a die for a given number of times
+    // based on the die quantity property
+    let rolls = [];
+    let total = 0;
+    let rollBreakDown;
+
+    // use rollBreakDown as a component that visualizes the 
+    // break down of the roll (i.e. what was the result of 
+    // each die roll)
+    console.log("die: ", die);
+
+    for (var i = 0; i < die.quantity; i++) {
+      let roll = {
+        die: die,
+        sideSelected: this.rollDie(die)
+      };
+      total += roll.sideSelected;
+      rolls.push(roll);
+    }
+    console.log("rolls: ", rolls);
+
+    total += die.modifier;
+    console.log("total: ", total);
+    
+    return <DieRollVisualizer rolls={rolls} total={total}/>
+  }
+
   rollAllDice = () => {
     // currently this function is testing rolls and printing out 
     // results for how many times each side is rolled for a given
@@ -151,6 +176,7 @@ class AllDicePanel extends Component {
   componentDidMount() {
     this.addDieToRoll();
     this.rollAllDice();
+    this.rollQuantityOfDice({sides: 4, quantity: 4, modifier: 0, index:0.234567})
   }
 
   render() {

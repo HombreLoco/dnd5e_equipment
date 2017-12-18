@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import DieRollVisualizer from './DieRollVisualizer.js';
+
 
 
 class DiceCard extends Component {
@@ -18,7 +20,8 @@ class DiceCard extends Component {
       sidesPanelStyle: {display: "none"},
       quantityPanelStyle: {display: "none"},
       bonusPanelStyle: {display: "none"},
-      showDieButtons: {display: "none"}
+      showDieButtons: {display: "none"},
+      dieVisualizer: ""
     }
     this.hideSidesPopup = this.hideSidesPopup.bind(this);
     this.hideQuantityPopup = this.hideQuantityPopup.bind(this);
@@ -31,14 +34,15 @@ class DiceCard extends Component {
   }
 
   handleUpdateDice = (die) => {
-    this.props.setDieProperties({sides: die.sides, quantity: die.quantity, index: die.index});
+    this.props.setDieProperties({sides: die.sides, quantity: die.quantity, index: die.index, modifier: die.modifier});
   }
 
   handleSelectSides = (sides) => {
     let currentDie = {
       index: this.props.die.index,
       sides: sides,
-      quantity: this.state.selectQuantityValue
+      quantity: this.state.selectQuantityValue,
+      modifier: this.state.selectBonusValue
     }
     this.setState({selectSidesValue: sides});
     
@@ -50,9 +54,23 @@ class DiceCard extends Component {
     let currentDie = {
       index: this.props.die.index,
       sides: this.state.selectSidesValue,
-      quantity: quantity
+      quantity: quantity,
+      modifier: this.state.selectBonusValue
     }
     this.setState({selectQuantityValue: quantity});
+    
+    //then update die info on parent component- may need to be callback
+    this.handleUpdateDice(currentDie);
+  }
+
+  handleSelectBonus = (modifier) => {
+    let currentDie = {
+      index: this.props.die.index,
+      sides: this.state.selectSidesValue,
+      quantity: this.state.selectQuantityValue,
+      modifier: modifier
+    }
+    this.setState({selectBonusValue: modifier});
     
     //then update die info on parent component- may need to be callback
     this.handleUpdateDice(currentDie);
@@ -105,9 +123,13 @@ class DiceCard extends Component {
   }
 
   clickedOffQuantityInput = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (!this.isDecendant(this.refs.quantityPopup, e.target)) {
       this.hideQuantityPopup();
+      // this.handleSelectQuantity(//what goes here?);      
     }
+    this.handleSelectBonus(this.state.selectBonusValue);
   }
 
   hideQuantityPopup = () => {
@@ -125,17 +147,16 @@ class DiceCard extends Component {
   }
 
   createQuantityPopup = () => {
-    let quantityPanel;
     return (
       <div className="quantityPopupPanel" style={this.state.quantityPanelStyle} ref="quantityPopup" 
       onClick={(e) => {
         e.stopPropagation();
       }}>
-        {quantityPanel}
         <div className="quantityInputLabel"># of Dice</div>
         <div>
           <button type="button" className="quantityInputButton" onClick={() => {
             this.hideQuantityPopup();
+            this.handleSelectQuantity(this.state.selectQuantityValue);
           }}>
             <i className="fa fa-check-circle" aria-hidden="true"></i>
           </button>
@@ -155,6 +176,8 @@ class DiceCard extends Component {
               onKeyPress={(e) => {
                 if (e.key === "Enter") {
                   this.hideQuantityPopup();
+                  this.handleSelectQuantity(this.state.selectQuantityValue);
+                  
                 }
               }}/>
           </div>
@@ -164,9 +187,12 @@ class DiceCard extends Component {
   }
 
   clickedOffBonusInput = (e) => {
+    e.preventDefault();
     if (!this.isDecendant(this.refs.bonusPopup, e.target)) {
+      this.handleSelectBonus(this.state.selectBonusValue);
       this.hideBonusPopup();
     }
+    this.handleSelectBonus(this.state.selectBonusValue);
   }
 
   hideBonusPopup = () => {
@@ -189,12 +215,15 @@ class DiceCard extends Component {
       <div className="bonusPopupPanel" style={this.state.bonusPanelStyle} ref="bonusPopup" 
       onClick={(e) => {
         e.stopPropagation();
-      }}>
+      }}
+      >
         {bonusPanel}
         <div className="bonusInputLabel">Modifier</div>
         <div>
           <button type="button" className="bonusInputButton" onClick={() => {
             this.hideBonusPopup();
+            this.handleSelectBonus(this.state.selectBonusValue);
+            
           }}>
             <i className="fa fa-check-circle" aria-hidden="true"></i>
           </button>
@@ -214,12 +243,26 @@ class DiceCard extends Component {
               onKeyPress={(e) => {
                 if (e.key === "Enter") {
                   this.hideBonusPopup();
+                  this.handleSelectBonus(this.state.selectBonusValue);
                 }
               }}/>
           </div>
         </div>
       </div>
     )
+  }
+
+  populateDieRollVisualizer = () => {
+
+    this.setState({dieVisualizer:this.props.rollSingleDie(this.props.die.index)})
+  }
+
+  checkIfPanelVisibleOnMouseOver = () => {
+    if (this.state.sidesPanelVisible || this.state.quantityPanelVisible || this.state.bonusPanelVisible) {
+      {this.setState({showDieButtons: {display: "none"}})}
+    } else {
+      {this.setState({showDieButtons: {display: ""}})}
+    }
   }
 
   componentDidMount() {
@@ -231,6 +274,9 @@ class DiceCard extends Component {
       <div onMouseLeave={() => {this.setState({showDieButtons: {display: "none"}})}}
         onMouseOver={() => {this.setState({showDieButtons: {display: ""}})}}
       >
+        <div className="dieRollVisualizer">
+          {this.state.dieVisualizer}
+        </div>
         <div className="dieQuantity" onClick={() => {this.showQuantityPopup();}}>
           {this.createQuantityPopup()}
           <div className="centerText">
@@ -262,11 +308,16 @@ class DiceCard extends Component {
           </div>
           <div className="rollSingleDie" onClick={() => {
             if (this.state.sidesPanelVisible) {
+              this.setState({selectSidesValue: this.state.selectSidesValue});
               this.hideSidesPopup();
             } else if (this.state.quantityPanelVisible) {
+              this.setState({selectQuantityValue: this.state.selectQuantityValue});
               this.hideQuantityPopup();
+            } else if (this.state.bonusPanelVisible) {
+              this.setState({selectBonusValue: this.state.selectBonusValue});
+              this.hideBonusPopup();
             }
-            this.props.rollSingleDie(this.props.die.index);
+            this.populateDieRollVisualizer();
           }}>
             <i className="fa fa-share-square-o" aria-hidden="true"></i>
           </div>
