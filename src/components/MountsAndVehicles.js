@@ -64,7 +64,7 @@ class MountsAndVehicles extends Component {
           return null;
         }
       });
-      console.log("all mounts and vehicles: ", allMountsAndVehicles);
+      // console.log("all mounts and vehicles: ", allMountsAndVehicles);
       let allMountsAndVehiclesCards = [];
       allMountsAndVehiclesCards = allMountsAndVehicles.map(item => {
         return <MountsAndVehiclesCard key={item.index} mountsAndVehicles={item} />

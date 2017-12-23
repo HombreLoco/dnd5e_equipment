@@ -53,7 +53,7 @@ class Weapons extends Component {
           return null;
         }
       });
-      console.log("all weapons: ", allWeapons);
+      // console.log("all weapons: ", allWeapons);
       let allWeaponsCards = [];
       allWeaponsCards = allWeapons.map(item => {
         return <WeaponCard key={item.index} weapon={item} />

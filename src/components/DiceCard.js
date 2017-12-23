@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import DieRollVisualizer from './DieRollVisualizer.js';
-
 
 
 class DiceCard extends Component {
@@ -25,11 +23,16 @@ class DiceCard extends Component {
     }
     this.hideSidesPopup = this.hideSidesPopup.bind(this);
     this.hideQuantityPopup = this.hideQuantityPopup.bind(this);
+    this.hideBonusPopup = this.hideBonusPopup.bind(this);
     this.showSidesPopup = this.showSidesPopup.bind(this);
     this.showQuantityPopup = this.showQuantityPopup.bind(this);
+    this.showBonusPopup = this.showBonusPopup.bind(this);
     this.handleSelectSides = this.handleSelectSides.bind(this);
     this.handleSelectQuantity = this.handleSelectQuantity.bind(this);    
-    this.handleUpdateDice =this.handleUpdateDice.bind(this);
+    this.handleSelectBonus = this.handleSelectBonus.bind(this);
+    this.handleUpdateDice = this.handleUpdateDice.bind(this);
+    this.clickedOffBonusInput = this.clickedOffBonusInput.bind(this);
+    this.clickedOffQuantityInput = this.clickedOffQuantityInput.bind(this);
     
   }
 
@@ -122,20 +125,20 @@ class DiceCard extends Component {
     return false;
   }
 
-  clickedOffQuantityInput = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!this.isDecendant(this.refs.quantityPopup, e.target)) {
-      this.hideQuantityPopup();
-      // this.handleSelectQuantity(//what goes here?);      
-    }
-    this.handleSelectBonus(this.state.selectBonusValue);
-  }
-
   hideQuantityPopup = () => {
     this.setState({quantityPanelVisible: false});
     this.setState({quantityPanelStyle: {display: "none"}});
     document.removeEventListener('click', this.clickedOffQuantityInput, false);
+  }
+
+  clickedOffQuantityInput = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!this.isDecendant(this.refs.quantityPopup, e.target)) {
+      this.handleUpdateDice({sides: this.state.selectSidesValue, quantity: this.state.selectQuantityValue, index: this.props.die.index, modifier: this.state.selectBonusValue})
+      this.hideQuantityPopup();    
+    }
+    this.handleSelectQuantity(this.state.selectQuantityValue);
   }
 
   showQuantityPopup = () => {
@@ -187,7 +190,9 @@ class DiceCard extends Component {
   }
 
   clickedOffBonusInput = (e) => {
+    // this.checkIfPanelVisible();
     e.preventDefault();
+    e.stopPropagation();
     if (!this.isDecendant(this.refs.bonusPopup, e.target)) {
       this.handleSelectBonus(this.state.selectBonusValue);
       this.hideBonusPopup();
@@ -206,6 +211,7 @@ class DiceCard extends Component {
       this.setState({bonusPanelVisible: true});
       this.setState({bonusPanelStyle: {}});
       document.addEventListener('click', this.clickedOffBonusInput, false);
+      // this.checkIfPanelVisible();
     }
   }
 
@@ -214,6 +220,7 @@ class DiceCard extends Component {
     return (
       <div className="bonusPopupPanel" style={this.state.bonusPanelStyle} ref="bonusPopup" 
       onClick={(e) => {
+        e.preventDefault();
         e.stopPropagation();
       }}
       >
@@ -253,17 +260,17 @@ class DiceCard extends Component {
   }
 
   populateDieRollVisualizer = () => {
-
     this.setState({dieVisualizer:this.props.rollSingleDie(this.props.die.index)})
   }
 
-  checkIfPanelVisibleOnMouseOver = () => {
-    if (this.state.sidesPanelVisible || this.state.quantityPanelVisible || this.state.bonusPanelVisible) {
-      {this.setState({showDieButtons: {display: "none"}})}
-    } else {
-      {this.setState({showDieButtons: {display: ""}})}
-    }
-  }
+  // checkIfPanelVisible = () => {
+  //   if (this.state.sidesPanelVisible || this.state.quantityPanelVisible || this.state.bonusPanelVisible) {
+  //     this.props.displayDicePanelButtons(true);
+  //   } else {
+  //     this.props.displayDicePanelButtons(false);
+  //   }
+  // }
+
 
   componentDidMount() {
   }
@@ -271,8 +278,14 @@ class DiceCard extends Component {
   render() {
 
     return (
-      <div onMouseLeave={() => {this.setState({showDieButtons: {display: "none"}})}}
-        onMouseOver={() => {this.setState({showDieButtons: {display: ""}})}}
+      <div onMouseLeave={() => {
+        this.setState({showDieButtons: {display: "none"}});
+        // this.checkIfPanelVisible();
+      }}
+        onMouseOver={() => {
+          this.setState({showDieButtons: {display: ""}});
+          // this.checkIfPanelVisible();
+        }}
       >
         <div className="dieRollVisualizer">
           {this.state.dieVisualizer}

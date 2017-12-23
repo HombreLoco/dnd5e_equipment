@@ -50,7 +50,7 @@ class Armor extends Component {
           return null;
         }
       });
-      console.log("all armor: ", allArmor);
+      // console.log("all armor: ", allArmor);
       let allArmorCards = [];
       allArmorCards = allArmor.map(item => {
         return <ArmorCard key={item.index} armor={item} />

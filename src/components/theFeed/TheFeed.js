@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Equipment from '../Equipment.js';
 
 
 
@@ -7,20 +8,45 @@ class TheFeed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: []
+      messages: [],
+      feed: []
     }
     
   }
 
+  displayMessages = () => {
+    let count = 0;
+    let messageList = this.props.messages.map((message) => {
+      count++;
+      return (
+        <div key={count}>
+          <div className="messageHeader">
+            Player Name
+          </div>
+          {message}
+          <div className="clear"></div>
+          <div className="messageFooter">
+          </div>
+        </div>
+      )
+    });
+    return messageList;
+  }
+
   componentDidMount() {
+    this.setState({feed: this.state.feed});
   }
 
   render() {
 
     return (
       <div className="feedPanel">
+        <div className="gameFeedLabel">
+          Game Feed
+        </div>
         <div className="feedStream">
-          hi
+          {this.displayMessages()}
+          {this.state.feed}
         </div>
       </div>
     )

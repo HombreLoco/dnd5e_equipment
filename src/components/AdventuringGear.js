@@ -57,7 +57,7 @@ class AdventuringGear extends Component {
           return null;
         }
       });
-      console.log("all adventuring gear: ", allAdventuringGear);
+      // console.log("all adventuring gear: ", allAdventuringGear);
       let allAdventuringGearCards = [];
       allAdventuringGearCards = allAdventuringGear.map(item => {
         return <AdventuringGearCard key={item.index} adventuringGear={item} />

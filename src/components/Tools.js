@@ -62,7 +62,7 @@ class Tools extends Component {
           return null;
         }
       });
-      console.log("all tools: ", allTools);
+      // console.log("all tools: ", allTools);
       let allToolsCards = [];
       allToolsCards = allTools.map(item => {
         return <ToolsCard key={item.index} tools={item} />

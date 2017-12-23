@@ -14,8 +14,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      _notificationSystem: null
+      _notificationSystem: null,
+      messages: [
+      ]
     }
+
+    this.addMessageToStream = this.addMessageToStream.bind(this);
   }
 
   setNewStyles = () => {
@@ -27,7 +31,6 @@ class App extends Component {
     
         success: { // Applied only to the success notification item
           "color": 'blue'
-
         }
       }
     }
@@ -46,8 +49,13 @@ class App extends Component {
     });
   }
 
+  addMessageToStream = (message) => {
+    this.state.messages.push(message);
+    this.setState({messages: this.state.messages});
+  }
+
   componentDidMount() {
-    this.getAllEquipment();
+    // this.getAllEquipment();
     this._notificationSystem = this.refs.notificationSystem;
     this.setNewStyles();
   }
@@ -57,10 +65,10 @@ class App extends Component {
       <div>
         <div>
           <button onClick={this._addNotification}>Add notification</button>
-          <NotificationSystem ref="notificationSystem" style={this.setNewStyles()}/>
+          <NotificationSystem ref="notificationSystem" style={this.setNewStyles()} />
         </div>
-        <TheFeed />
-        <AllDicePanel />
+        <TheFeed messages={this.state.messages} />
+        <AllDicePanel addMessageToStream={this.addMessageToStream} />
         <Equipment />
       </div>
     );
