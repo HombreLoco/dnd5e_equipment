@@ -1,0 +1,37 @@
+[
+  {
+    "type": "copper",
+    "value": 0.01,
+    "abbreviation": "cp",
+    "weightScale": "lb",
+    "weightValue": 0.02
+  },
+  {
+    "type": "silver",
+    "value": 0.1,
+    "abbreviation": "sp",
+    "weightScale": "lb",
+    "weightValue": 0.02
+  },
+  {
+    "type": "electrum",
+    "value": 0.5,
+    "abbreviation": "ep",
+    "weightScale": "lb",
+    "weightValue": 0.02
+  },
+  {
+    "type": "gold",
+    "value": 1,
+    "abbreviation": "gp",
+    "weightScale": "lb",
+    "weightValue": 0.02
+  },
+  {
+    "type": "platinum",
+    "value": 10,
+    "abbreviation": "pp",
+    "weightScale": "lb",
+    "weightValue": 0.02
+  }
+]
