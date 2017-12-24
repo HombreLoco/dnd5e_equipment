@@ -405,9 +405,7 @@ class AllDicePanel extends Component {
     return (
       <div>
         <div className="dicePanel">
-          <div className="dicePanelButtons floatRight" style={this.state.styleDicePanelButtons} onMouseOver={() => {
-            console.log("here");
-          }}>
+          <div className="floatRight" style={this.state.styleDicePanelButtons}>
             <div className="addDieButton floatLeft" onClick={() => {this.addDieToRoll();}}>
               + Add die
             </div>

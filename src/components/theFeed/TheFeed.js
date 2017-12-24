@@ -33,8 +33,17 @@ class TheFeed extends Component {
     return messageList;
   }
 
+  scrollToBottom = () => {
+    this.bottomOfFeed.scrollIntoView({ behavior: "smooth" });
+  }
+
   componentDidMount() {
     this.setState({feed: this.state.feed});
+    this.scrollToBottom();
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom();
   }
 
   render() {
@@ -44,9 +53,14 @@ class TheFeed extends Component {
         <div className="gameFeedLabel">
           Game Feed
         </div>
-        <div className="feedStream">
+        <div className="feedStream" onChange={
+          console.log("changed")
+          }>
           {this.displayMessages()}
           {this.state.feed}
+          <div style={{ float:"left", clear: "both" }}
+             ref={(el) => { this.bottomOfFeed = el; }}>
+          </div>
         </div>
       </div>
     )
