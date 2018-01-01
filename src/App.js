@@ -5,6 +5,7 @@ import allEquipment from './data/allEquipment.json';
 import Equipment from './components/Equipment.js';
 import AllDicePanel from './components/AllDicePanel.js';
 import TheFeed from './components/theFeed/TheFeed.js';
+import GemstoneTreasureGenerator from './components/dmTools/gemstoneTreasureGenerator.js';
 
 
 class App extends Component {
@@ -15,8 +16,8 @@ class App extends Component {
     super(props);
     this.state = {
       _notificationSystem: null,
-      messages: [
-      ]
+      messages: [],
+      gemstoneGenerator: []
     }
 
     this.addMessageToStream = this.addMessageToStream.bind(this);
@@ -68,6 +69,7 @@ class App extends Component {
           <NotificationSystem ref="notificationSystem" style={this.setNewStyles()} />
         </div>
         <TheFeed messages={this.state.messages} />
+        <GemstoneTreasureGenerator addMessageToStream={this.addMessageToStream} initializeGemstoneTreasureGenerator={this.initializeGemstoneTreasureGenerator}/>
         <AllDicePanel addMessageToStream={this.addMessageToStream} />
         <Equipment />
       </div>

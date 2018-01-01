@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import componentProperties from '../lib/componentProperties.js';
+import componentProperties from '../lib/componentProperties.js';
 // import allEquipment from '../data/allEquipment.json';
 import DiceCard from './DiceCard.js';
 
@@ -29,29 +29,29 @@ class AllDicePanel extends Component {
   // has to roll each die selected and then add those rolls together,
   // display the results of each roll and total of all rolls
 
-  rollDie = (die) => {
-    // write dice roll code to get random number for each 
-    // side of the die and then take which ever has the 
-    // highest number
+  // rollDie = (die) => {
+  //   // write dice roll code to get random number for each 
+  //   // side of the die and then take which ever has the 
+  //   // highest number
 
-    let dieSides = [];
-    let tempRollResult = 0;
-    let selectedSide = 0;
+  //   let dieSides = [];
+  //   let tempRollResult = 0;
+  //   let selectedSide = 0;
 
-    for (var i = 1; i <= die.sides; i++) {
-      dieSides.push({
-        sideNumber: i,
-        rollResult: Math.random() * Math.random()
-      });
-    }
-    for (var j = 0; j < dieSides.length; j++) {
-      if (dieSides[j].rollResult > tempRollResult) {
-        tempRollResult = dieSides[j].rollResult;
-        selectedSide = dieSides[j].sideNumber;
-      }
-    }
-    return selectedSide;
-  }
+  //   for (var i = 1; i <= die.sides; i++) {
+  //     dieSides.push({
+  //       sideNumber: i,
+  //       rollResult: Math.random() * Math.random()
+  //     });
+  //   }
+  //   for (var j = 0; j < dieSides.length; j++) {
+  //     if (dieSides[j].rollResult > tempRollResult) {
+  //       tempRollResult = dieSides[j].rollResult;
+  //       selectedSide = dieSides[j].sideNumber;
+  //     }
+  //   }
+  //   return selectedSide;
+  // }
 
   calculateTotalFromRoll = (dieRollResults) => {
     let total = 0;
@@ -97,7 +97,6 @@ class AllDicePanel extends Component {
           let tempFinalResults = dieRollResults[k].rolls.map((roll) => {
             let keyValue2 = "B" + Math.random();
             if (count1 === dieRollResults[k].rolls.length - 1) {
-              console.log("die roll: ", roll);
               return (
                 <div key={keyValue2}>
                   <div className="floatLeft">
@@ -202,7 +201,6 @@ class AllDicePanel extends Component {
         totalModifier += `${roll.modifier} + `;
       })
       let newTotalModifier = totalModifier.slice(0, -3);
-      // let newTotalModifier = totalModifier;
       rollBreakDown += `(${newTotalModifier})`;
       results = (
         <div>
@@ -212,7 +210,6 @@ class AllDicePanel extends Component {
           {results}
         </div>
       )
-      // this.props.addMessageToStream(results);
       return (
         <div>
           {results}
@@ -231,7 +228,7 @@ class AllDicePanel extends Component {
     for (var i = 0; i < die.quantity; i++) {
       let roll = {
         die: die,
-        sideSelected: this.rollDie(die)
+        sideSelected: componentProperties.rollDie(die)
       };
       total += roll.sideSelected;
       rolls.push(roll);
@@ -346,13 +343,10 @@ class AllDicePanel extends Component {
   rollAllDice = () => {
     let allRolls = [];
     let totalRollOutput = {};
-    console.log("this.state.allDice.length: ", this.state.allDice.length);
     for (var i = 0; i < this.state.allDice.length; i++) {
       let roll = this.rollQuantityOfDice(this.state.allDice[i]);
-      console.log("roll: ", roll);
       allRolls.push(roll);
     }
-    console.log("allRolls: ", allRolls);
     for (var j = 0; j < allRolls.length; j++) {
 
     }
@@ -369,9 +363,8 @@ class AllDicePanel extends Component {
     let allRolls = [];
     let allRollsCount = [];
     for (var i = 0; i < 10000; i++) {
-      allRolls.push(this.rollDie({sides: 100}));
+      allRolls.push(componentProperties.rollDie({sides: 100}));
     }
-    console.log("allRolls: ", allRolls);
 
     for (var j = 0; j < allRolls.length; j++) {
       if (allRollsCount.length > 0) {
@@ -391,13 +384,11 @@ class AllDicePanel extends Component {
         allRollsCount.push({side: allRolls[j], count: 1})
       }
     }
-    console.log("allRollsCount: ", allRollsCount);
   }
 
   componentDidMount() {
     this.addDieToRoll();
-    this.testDiceRollResults();
-    // this.rollQuantityOfDice({sides: 4, quantity: 4, modifier: 0, index:0.234567})
+    // this.testDiceRollResults();
   }
 
   render() {

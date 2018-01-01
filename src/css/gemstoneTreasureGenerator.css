@@ -1,0 +1,286 @@
+* {
+  box-sizing: border-box;
+}
+
+.clear {
+  clear: both;
+}
+
+.gemstonePanel {
+    width: 300px;
+    min-height: 100px;
+    background-color: #cccccc;
+    border: 3px solid black;
+    padding: 2px 10px 10px 10px;
+}
+
+.gemstoneTreasureGeneratorLabel {
+  font-size: .65em;
+  margin-left: 3px;
+}
+
+.gemstoneTreasureGeneratorSection {
+  min-height: 100px;
+  padding: 5px;
+  background-color: #fff;
+}
+
+.gemstoneGenerateButton {
+  text-align: center;
+  vertical-align: middle;
+  background-color: #20b2aa;
+  padding: 0px 3px;
+  float: left;
+}
+
+.gemstoneResetButton {
+  float: right;
+  margin-right: 5px;
+}
+
+.dividerLine {
+  margin-top: 5px;
+  border-top: 2px #c2c2c2 solid;
+}
+
+.selectGemSection {
+
+}
+
+.individualGemSelector {
+
+}
+
+.gemValueTitle {
+  float: left;
+  width: 80px;
+  margin-top: 5px;
+  margin-left: 3px;
+  font-size: .65em;
+}
+
+.gemQuantityTitle {
+  float: left;
+  width: 50px;
+  margin: 5px 0 0 5px;
+  font-size: .65em;
+}
+
+.gemMixTitle {
+  float: left;
+  width: 40px;
+  margin: 5px 0 0 5px;
+  font-size: .65em;
+}
+
+.gemValue {
+  float: left;
+  width: 80px;
+  background-color: #88fff5;
+}
+
+.quantitySelect {
+  margin-left: 5px;
+  float: left;
+}
+
+.quantityInput {
+  width: 50px;
+  text-align: center;
+}
+
+.toggleRandomGems {
+  float: left;
+  width: 40px;
+}
+
+.treasureMessage {
+  font-family: Palatino, serif;
+  width: 100%;
+  background-color: #fce0bd;
+  padding: 5px;
+}
+
+.treasureInnerContainer {
+  background-color: #c79d69;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #573d3d;
+}
+
+.treasureHeader {
+  font-family: Palatino, serif;
+}
+
+.gemCheckbox {
+  margin-left: 17px;
+}
+
+.gemLines {
+  margin-bottom: 5px;
+}
+
+.lineTop1 {
+  border-top: 1px solid #573d3d;
+  height: 5px;
+  width: 75%;
+}
+
+.lineTop2 {
+  border-top: 1px solid #573d3d;
+  height: 5px;
+  width: 60%;
+}
+
+.lineTop3 {
+  border-top: 1px solid #573d3d;
+  height: 5px;
+  width: 45%;
+}
+
+.treasureBody {
+  
+}
+
+.singleGemColor {
+  margin-bottom: 5px;
+}
+
+.cutDiamond {
+  background: radial-gradient(circle, yellow, yellow, green);
+  background-color: white;
+  border: 1px solid #919100;
+  border-radius: 3px;
+  float: left;
+  position: relative;
+  width: 34px;
+  height: 27px;
+}
+
+.topLeftDiamondAngle {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid black;
+}
+
+.topRightDiamondAngle {
+  position: absolute;
+  top: 2px;
+  left: 16px;
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid black;
+}
+
+.topDiamondFlat {
+  position: absolute;
+  top: 2px;
+  left: 9px;
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 14px solid black;
+}
+
+.bottomDiamondAngles {
+  position: absolute;
+  top: 9px;
+  left: 2px;
+  width: 0; 
+  height: 0; 
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 15px solid black;
+}
+
+.gemName {
+  float: left;
+  margin: 3px 0 0 5px;
+}
+
+.randomGems {
+  position: relative;
+}
+
+.getRandomGemCollection {
+  padding: 0 3px;
+  background-color: #20b2aa;
+  float: right;
+}
+
+.getRandomGemIcon {
+  float: right;
+  margin: 7px 0 0 5px;
+}
+
+.randomDropDown {
+  overflow-y: hidden;
+	transition-duration: .5s;
+	transition-timing-function: ease;
+  position: absolute;
+  top: 24px;
+  right: 0;
+  background-color: #20b2aa;
+  width: 80px;
+  border: 1px solid #000;
+  border-top: none;
+}
+
+.percentGemSelector {
+  position: relative;
+}
+
+.percentInput {
+  float: left;
+  width: 100%;
+  padding-right: 15px;
+  text-align: right;
+}
+
+.percentPercent {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+}
+
+.generateIcon {
+  float: right;
+  margin: 8px 0 0 5px;
+}
+
+.randomGenerateSection {
+  position: relative;
+}
+
+.randomGenerateInput {
+  width: 55px;
+  text-align: right;
+}
+
+.randomGenerateLabel {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  font-size: .5em;
+  z-index: 1;
+}
+
+.randomGenerateButton {
+  float: right;
+  width: 23px;
+  height: 28px;
+  background-color: #20b2aa;
+}
+
+.generateRandomIcon {
+  float: right;
+  margin: 9px 5px 0 0;
+}

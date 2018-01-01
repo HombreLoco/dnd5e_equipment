@@ -211,7 +211,6 @@ class DiceCard extends Component {
       this.setState({bonusPanelVisible: true});
       this.setState({bonusPanelStyle: {}});
       document.addEventListener('click', this.clickedOffBonusInput, false);
-      // this.checkIfPanelVisible();
     }
   }
 

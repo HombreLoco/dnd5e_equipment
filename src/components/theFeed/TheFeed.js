@@ -53,9 +53,7 @@ class TheFeed extends Component {
         <div className="gameFeedLabel">
           Game Feed
         </div>
-        <div className="feedStream" onChange={
-          console.log("changed")
-          }>
+        <div className="feedStream">
           {this.displayMessages()}
           {this.state.feed}
           <div style={{ float:"left", clear: "both" }}

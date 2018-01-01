@@ -2,6 +2,7 @@
   {
     "name": "Azurite",
     "desc": "opaque mottled deep blue",
+    "color": ["#0061ff"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -11,6 +12,7 @@
   {
     "name": "Banded Agate",
     "desc": "translucent striped brown, blue, white, or red",
+    "color": ["#8e674e", "#517fff", "#e3e6ed", "#b21601"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -19,6 +21,7 @@
   },{
     "name": "Blue Quartz",
     "desc": "transparent pale blue",
+    "color": ["#7fccff"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -27,6 +30,7 @@
   },{
     "name": "Eye Agate",
     "desc": "translucent circles of gray, white, brown, blue, or green",
+    "color": ["#a0a0a0", "#e3e6ed", "#8e674e", "#517fff", "#00720b"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -35,6 +39,7 @@
   },{
     "name": "Hematite",
     "desc": "opaque gray-black",
+    "color": ["#4c4c4c"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -43,6 +48,7 @@
   },{
     "name": "Lapis Lazuli",
     "desc": "opaque light and dark blue with yellow flecks",
+    "color": ["#0003cc"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -51,6 +57,7 @@
   },{
     "name": "Malachite",
     "desc": "opaque striated light and dark green",
+    "color": ["#068200"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -59,6 +66,7 @@
   },{
     "name": "Moss Agate",
     "desc": "translucent pink or yellow-white with mossy gray or green markings",
+    "color": ["#ffb2f3", "#fffac1"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -67,6 +75,7 @@
   },{
     "name": "Obsidian",
     "desc": "opaque black",
+    "color": ["#000000"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -75,6 +84,7 @@
   },{
     "name": "Rhondochrosite",
     "desc": "opaque light pink",
+    "color": ["#ff89f3"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -83,6 +93,7 @@
   },{
     "name": "Tiger Eye",
     "desc": "translucent brown with golden center",
+    "color": ["#996000"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -91,6 +102,7 @@
   },{
     "name": "Turquoise",
     "desc": "opaque light blue-green",
+    "color": ["#00d0d3"],
     "cost": {
       "quantity": 10,
       "unit": "gp"
@@ -100,6 +112,7 @@
   {
     "name": "Bloodstone",
     "desc": "opaque dark gray with red flecks",
+    "color": ["#727272"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -108,6 +121,7 @@
   },{
     "name": "Carnelian",
     "desc": "opaque orange to red-brown",
+    "color": ["#9b2e00"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -116,6 +130,7 @@
   },{
     "name": "Chalcedony",
     "desc": "opaque white",
+    "color": ["#ffffff"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -124,6 +139,7 @@
   },{
     "name": "Chrysoprase",
     "desc": "translucent green",
+    "color": ["#6bff60"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -132,6 +148,7 @@
   },{
     "name": "Citrine",
     "desc": "transparent pale yellow-brown",
+    "color": ["#b59f00"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -140,6 +157,7 @@
   },{
     "name": "Jasper",
     "desc": "opaque blue, black, or brown",
+    "color": ["#1343d3", "#000000", "#723b01"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -148,6 +166,7 @@
   },{
     "name": "Moonstone",
     "desc": "translucent white with pale blue glow",
+    "color": ["#9eb6ff"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -156,6 +175,7 @@
   },{
     "name": "Onyx",
     "desc": "opaque bands of black and white, or pure black or white",
+    "color": ["#757987"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -164,6 +184,7 @@
   },{
     "name": "Quartz",
     "desc": "transparent white, smoky gray, or yellow",
+    "color": ["#ffffff", "#989aa0", "#fffb2b"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -172,6 +193,7 @@
   },{
     "name": "Sardonyx",
     "desc": "opaque bands of red and white",
+    "color": ["#c41515", "#ffffff"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -180,6 +202,7 @@
   },{
     "name": "Star Rose Quartz",
     "desc": "translucent rosy stone with white star-shaped center",
+    "color": ["#cc0000"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -188,6 +211,7 @@
   },{
     "name": "Zircon",
     "desc": "transparent pale blue-green",
+    "color": ["#75ffce"],
     "cost": {
       "quantity": 50,
       "unit": "gp"
@@ -197,6 +221,7 @@
   {
     "name": "Amber",
     "desc": "transparent watery gold to rich gold",
+    "color": ["#ffdd02"],
     "cost": {
       "quantity": 100,
       "unit": "gp"
@@ -206,6 +231,7 @@
   {
     "name": "Amethyst",
     "desc": "transparent deep purple",
+    "color": ["#6400a3"],
     "cost": {
       "quantity": 100,
       "unit": "gp"
@@ -215,6 +241,7 @@
   {
     "name": "Chrysoberyl",
     "desc": "transparent yellow-green to pale green",
+    "color": ["#9ece00"],
     "cost": {
       "quantity": 100,
       "unit": "gp"
@@ -224,6 +251,7 @@
   {
     "name": "Coral",
     "desc": "opaque crimson",
+    "color": ["#ff0000"],
     "cost": {
       "quantity": 100,
       "unit": "gp"
@@ -233,6 +261,7 @@
   {
     "name": "Garnet",
     "desc": "transparent red, brown-green, or violet",
+    "color": ["#ff0000", "#6c7a00", "#38007a"],
     "cost": {
       "quantity": 100,
       "unit": "gp"
@@ -242,6 +271,7 @@
   {
     "name": "Jade",
     "desc": "translucent light green, deep green, or white",
+    "color": ["#a6ff9e", "#0a7c00", "#ffffff"],
     "cost": {
       "quantity": 100,
       "unit": "gp"
@@ -251,6 +281,7 @@
   {
     "name": "Jet",
     "desc": "opaque deep black",
+    "color": ["#000000"],
     "cost": {
       "quantity": 100,
       "unit": "gp"
@@ -260,6 +291,7 @@
   {
     "name": "Pearl",
     "desc": "opaque lustrous white, yellow, or pink",
+    "color": ["#ffffff", "#f6ff00", "#ff84ff"],
     "cost": {
       "quantity": 100,
       "unit": "gp"
@@ -269,6 +301,7 @@
   {
     "name": "Spinel",
     "desc": "transparent red, red-brown, or deep green",
+    "color": ["#c4232b", "#ad1c00", "#056600"],
     "cost": {
       "quantity": 100,
       "unit": "gp"
@@ -278,6 +311,7 @@
   {
     "name": "Tourmaline",
     "desc": "transparent pale green, blue, brown, or red",
+    "color": ["#7dc479", "#1971ff", "#6d2e18", "#dd0000"],
     "cost": {
       "quantity": 100,
       "unit": "gp"
@@ -287,6 +321,7 @@
   {
     "name": "Alexandrite",
     "desc": "transparent dark green",
+    "color": ["#008e04"],
     "cost": {
       "quantity": 500,
       "unit": "gp"
@@ -296,6 +331,7 @@
   {
     "name": "Aquamarine",
     "desc": "transparent pale blue-green",
+    "color": ["#00c493"],
     "cost": {
       "quantity": 500,
       "unit": "gp"
@@ -305,6 +341,7 @@
   {
     "name": "Black Pearl",
     "desc": "opaque pure black",
+    "color": ["#000000"],
     "cost": {
       "quantity": 500,
       "unit": "gp"
@@ -314,6 +351,7 @@
   {
     "name": "Blue Spinel",
     "desc": "transparent deep blue",
+    "color": ["#4c9fff"],
     "cost": {
       "quantity": 500,
       "unit": "gp"
@@ -323,6 +361,7 @@
   {
     "name": "Peridot",
     "desc": "transparent rich olive green",
+    "color": ["#5d9141"],
     "cost": {
       "quantity": 500,
       "unit": "gp"
@@ -332,6 +371,7 @@
   {
     "name": "Topaz",
     "desc": "transparent golden yellow",
+    "color": ["#fff570"],
     "cost": {
       "quantity": 500,
       "unit": "gp"
@@ -341,6 +381,7 @@
   {
     "name": "Black Opal",
     "desc": "translucent dark green with black mottling and golden flecks",
+    "color": ["#00af02"],
     "cost": {
       "quantity": 1000,
       "unit": "gp"
@@ -350,6 +391,7 @@
   {
     "name": "Blue Sapphire",
     "desc": "translucent blue-white to medium blue",
+    "color": ["#006ac1"],
     "cost": {
       "quantity": 1000,
       "unit": "gp"
@@ -359,6 +401,7 @@
   {
     "name": "Emerald",
     "desc": "transparent deep bright green",
+    "color": ["#0a840e"],
     "cost": {
       "quantity": 1000,
       "unit": "gp"
@@ -368,6 +411,7 @@
   {
     "name": "Fire Opal",
     "desc": "translucent fiery red",
+    "color": ["#c41d11"],
     "cost": {
       "quantity": 1000,
       "unit": "gp"
@@ -377,6 +421,7 @@
   {
     "name": "Opal",
     "desc": "translucent pale blue with green and golden mottling",
+    "color": ["#4270af"],
     "cost": {
       "quantity": 1000,
       "unit": "gp"
@@ -386,6 +431,7 @@
   {
     "name": "Star Ruby",
     "desc": "translucent ruby with white star-shaped center",
+    "color": ["#ff0026"],
     "cost": {
       "quantity": 1000,
       "unit": "gp"
@@ -395,6 +441,7 @@
   {
     "name": "Star Sapphire",
     "desc": "translucent blue sapphire with white star-shaped center",
+    "color": ["#006eff"],
     "cost": {
       "quantity": 1000,
       "unit": "gp"
@@ -404,6 +451,7 @@
   {
     "name": "Yellow Sapphire",
     "desc": "transparent fiery yellow or yellow-green",
+    "color": ["#def200"],
     "cost": {
       "quantity": 1000,
       "unit": "gp"
@@ -413,6 +461,7 @@
   {
     "name": "Black Sapphire",
     "desc": "translucent lustrous black with glowing highlights",
+    "color": ["#000000"],
     "cost": {
       "quantity": 5000,
       "unit": "gp"
@@ -422,6 +471,7 @@
   {
     "name": "Diamond",
     "desc": "transparent blue-white, canary, pink, brown, or blue",
+    "color": ["#7ea4fc", "#f9e500", "#ff70f0", "#d8b491", "#354dff"],
     "cost": {
       "quantity": 5000,
       "unit": "gp"
@@ -431,6 +481,7 @@
   {
     "name": "Jacinth",
     "desc": "transparent fiery orange",
+    "color": ["#ff6e00"],
     "cost": {
       "quantity": 5000,
       "unit": "gp"
@@ -440,6 +491,7 @@
   {
     "name": "Ruby",
     "desc": "transparent clear red to deep crimson",
+    "color": ["#ff0026"],
     "cost": {
       "quantity": 5000,
       "unit": "gp"

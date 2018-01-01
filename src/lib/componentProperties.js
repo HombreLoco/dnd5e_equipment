@@ -39,8 +39,24 @@ module.exports = {
     });
     return list;
   },
-  rollDie: function(quantity, sides) {
-    
+  rollDie: function(die) {
+    let dieSides = [];
+    let tempRollResult = 0;
+    let selectedSide = 0;
+
+    for (var i = 1; i <= die.sides; i++) {
+      dieSides.push({
+        sideNumber: i,
+        rollResult: Math.random() * Math.random()
+      });
+    }
+    for (var j = 0; j < dieSides.length; j++) {
+      if (dieSides[j].rollResult > tempRollResult) {
+        tempRollResult = dieSides[j].rollResult;
+        selectedSide = dieSides[j].sideNumber;
+      }
+    }
+    return selectedSide;
   }
 }
 
