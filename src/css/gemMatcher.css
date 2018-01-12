@@ -1,0 +1,38 @@
+.gemMatcherPanel {
+  background-color: #3da8ff;
+  width: 100%;
+  padding: 13px 5px 5px 12px;
+}
+
+.gemMatcherInput {
+
+}
+
+.singleGem {
+  /* float: left; */
+}
+
+.fullGemPanel {
+  padding: 5px;
+  width: 238px;
+  height: 196px;
+  background-color: blue;
+}
+
+.gemPlayingCard {
+  float: left;
+  padding: 2px;
+}
+
+.innerGemPanel {
+
+}
+
+.diamondPieces {
+  /* display: "none";
+  background-color: red; */
+}
+
+.gemMatcherFullComponent {
+  opacity: .5;
+}

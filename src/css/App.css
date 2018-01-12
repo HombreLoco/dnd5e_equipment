@@ -1,3 +1,10 @@
+.fullAppWindow {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -25,4 +32,34 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@media screen and (min-width: 600px) {
+  .appFeedPanel {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    /* float: right; */
+  }
+
+  .appGemGeneratorPanel {
+    /* float: left; */
+    position: absolute;
+    top: 75px;
+    left: 0px;
+  }
+
+  .appDicePanel {
+    position: absolute;
+    top: 350px;
+    left: 0px;
+    /* float: left; */
+  }
+
+  .appEquipmentPanel {
+    position: absolute;
+    top: 0px;
+    right: 300px;
+  }
+
 }

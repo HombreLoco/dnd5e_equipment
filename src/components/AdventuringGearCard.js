@@ -152,11 +152,10 @@ class AdventuringGearCard extends Component {
       equipmentPackCards = item.contents.map(content => {
         for (var i = 0; i < lengthOfEquipmentList; i++) {
           if (allEquipment[i].index === content.index) {
-            return <AdventuringGearCard key={allEquipment[i].index} adventuringGear={allEquipment[i]} />
-          } else {
-            return null;
+          equipmentPackCards.push(<AdventuringGearCard key={allEquipment[i].index} adventuringGear={allEquipment[i]} />);
           }
         }
+        return equipmentPackCards;
       });
       equipmentPackList = (
         <span>

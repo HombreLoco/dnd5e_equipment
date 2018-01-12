@@ -11,6 +11,7 @@
 }
 
 .dicePanel {
+  float: left;
   width: 300px;
   min-height: 200px;
   background-color: #cccccc;

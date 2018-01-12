@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Equipment from '../Equipment.js';
-
-
 
 class TheFeed extends Component {
 
@@ -11,7 +8,6 @@ class TheFeed extends Component {
       messages: [],
       feed: []
     }
-    
   }
 
   displayMessages = () => {

@@ -32,3 +32,15 @@
   color: #a3a3a3;
   margin-left: 3px;
 }
+
+@media screen and (min-width: 600px) {
+  .feedPanel {
+    height: 90vh;
+  }
+
+  .feedStream {
+    height: calc(100% - 15px);
+    background-color: #fff;
+    overflow: scroll;
+  }
+}

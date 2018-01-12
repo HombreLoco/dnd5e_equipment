@@ -34,7 +34,7 @@ class Equipment extends Component {
 
     return (
       <div>
-        <div className="">
+        <div className="equipmentDropDown">
           <button className="accordion" onClick={() => {this.setAccordion()}}>Equipment</button>
           <div className={this.state.classNamesString} style={this.state.style}>
             <Weapons />

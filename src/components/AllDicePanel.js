@@ -90,13 +90,15 @@ class AllDicePanel extends Component {
       let dieRollTotalModifier = this.calculateModifierForAllRolls(dieRollResults);
       let count2 = 0;
       let results = [];
+      let tempFinalResults;
       for (var k = 0; k < dieRollResults.length; k++) {
         let count1 = 0;
         let keyValue1 = "A" + Math.random();
         if (count2 === dieRollResults.length - 1) {
-          let tempFinalResults = dieRollResults[k].rolls.map((roll) => {
+          let rLength = dieRollResults[k].rolls.length;
+          tempFinalResults = dieRollResults[k].rolls.map((roll) => {
             let keyValue2 = "B" + Math.random();
-            if (count1 === dieRollResults[k].rolls.length - 1) {
+            if (count1 === (rLength - 1)) {
               return (
                 <div key={keyValue2}>
                   <div className="floatLeft">
@@ -199,6 +201,7 @@ class AllDicePanel extends Component {
       dieRollResults.map((roll) => {
         rollBreakDown += `${roll.die.quantity}d${roll.die.sides} + `;
         totalModifier += `${roll.modifier} + `;
+        return null;
       })
       let newTotalModifier = totalModifier.slice(0, -3);
       rollBreakDown += `(${newTotalModifier})`;
@@ -279,19 +282,11 @@ class AllDicePanel extends Component {
   }
 
   clearAllDice = () => {
-    // console.log("isPopupVisible: ", this.isPopupVisible());
-    // if (this.state) {
-      // while(this.state.allDice.length > 0) {
-      //   this.state.allDice.pop();
-      // }
-      
-      this.state.allDice.length = 0;
-      this.setState({allDice: this.state.allDice});
-      // this.setState({allDice: []});
-      // this.setState({allDiceCards: []});
-      this.createDiceCardPanel();
-      this.addDieToRoll();
-    // }
+    let tempArrayHolder = this.state.allDice;
+    tempArrayHolder.length = 0;
+    this.setState({allDice: tempArrayHolder});
+    this.createDiceCardPanel();
+    this.addDieToRoll();
   }
 
   // isPopupVisible = (isVisible) => {
@@ -315,15 +310,16 @@ class AllDicePanel extends Component {
   // }
 
   setDieProperties = (die) => {
-    if (this.state.allDice) {
-      for (var i = 0; i < this.state.allDice.length; i++) {
-        if (die.index === this.state.allDice[i].index) {
-          this.state.allDice[i].sides = die.sides;
-          this.state.allDice[i].quantity = die.quantity;
-          this.state.allDice[i].modifier = die.modifier;
-          this.state.allDice[i].isVisible = die.isVisible;
+    let tempAllDice = this.state.allDice;
+    if (tempAllDice) {
+      for (var i = 0; i < tempAllDice.length; i++) {
+        if (die.index === tempAllDice[i].index) {
+          tempAllDice[i].sides = die.sides;
+          tempAllDice[i].quantity = die.quantity;
+          tempAllDice[i].modifier = die.modifier;
+          tempAllDice[i].isVisible = die.isVisible;
           this.setState({
-            allDice: this.state.allDice
+            allDice: tempAllDice
           });
         }
       }
@@ -342,7 +338,6 @@ class AllDicePanel extends Component {
 
   rollAllDice = () => {
     let allRolls = [];
-    let totalRollOutput = {};
     for (var i = 0; i < this.state.allDice.length; i++) {
       let roll = this.rollQuantityOfDice(this.state.allDice[i]);
       allRolls.push(roll);

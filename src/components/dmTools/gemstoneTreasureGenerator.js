@@ -60,39 +60,42 @@ class GemstoneTreasureGenerator extends Component {
   }
 
   updateTreasureQuantity = (gemstoneValue, gemstoneQuantity) => {
-    for (var i = 0; i < this.state.gemstones.length; i++) {
-      if (gemstoneValue === this.state.gemstones[i].gemValue) {
-        this.state.gemstones[i].gemQuantity = gemstoneQuantity;
-        this.setState({gemstones: this.state.gemstones});
+    let tempGemstones = this.state.gemstones;
+    for (var i = 0; i < tempGemstones.length; i++) {
+      if (gemstoneValue === tempGemstones[i].gemValue) {
+        tempGemstones[i].gemQuantity = gemstoneQuantity;
+        this.setState({gemstones: tempGemstones});
       }
     }
   }
 
   updateGemPercentages = (gemstoneValue, event) => {
-    if (parseInt(event.target.value) >= 100) {
+    let tempGemstones = this.state.gemstones;
+    if (parseInt(event.target.value, 10) >= 100) {
       event.preventDefault();
       event.target.value = 100;
     }
-    for (var i = 0; i < this.state.gemstones.length; i++) {
-      if (gemstoneValue === this.state.gemstones[i].gemValue) {
-        this.state.gemstones[i].randomPercent = parseInt(event.target.value);
-        this.setState({gemstones: this.state.gemstones});
+    for (var i = 0; i < tempGemstones.length; i++) {
+      if (gemstoneValue === tempGemstones[i].gemValue) {
+        tempGemstones[i].randomPercent = parseInt(event.target.value, 10);
+        this.setState({gemstones: tempGemstones});
       }
     }
   }
   
   switchIsMixed = (gemValue) => {
-    for (var i = 0; i < this.state.gemstones.length; i++) {
-      if (gemValue === this.state.gemstones[i].gemValue) {
-        this.state.gemstones[i].isMixed = !this.state.gemstones[i].isMixed;
-        this.setState({gemstones: this.state.gemstones});
+    let tempGemstones = this.state.gemstones;
+    for (var i = 0; i < tempGemstones.length; i++) {
+      if (gemValue === tempGemstones[i].gemValue) {
+        tempGemstones[i].isMixed = !tempGemstones[i].isMixed;
+        this.setState({gemstones: tempGemstones});
       }
     }
   }
 
   setRandomGemQuantity = (e) => {
-    this.state.gemRandomQuantity = parseInt(e.target.value);
-    this.setState({gemRandomQuantity: this.state.gemRandomQuantity});
+    let quantityValue = parseInt(e.target.value, 10);
+    this.setState({gemRandomQuantity: quantityValue});
   }
 
   getPercentageTotal = () => {
@@ -128,10 +131,10 @@ class GemstoneTreasureGenerator extends Component {
       }
     } else if (percentTotal > 100) {
       while (percentTotal > 100) {
-        for (var j = 0; j < tempGemstones.length; j++) {
+        for (var k = 0; k < tempGemstones.length; k++) {
           if (percentTotal > 100) {
-            if (tempGemstones[j].randomPercent > 2) {
-              tempGemstones[j].randomPercent--;
+            if (tempGemstones[k].randomPercent > 2) {
+              tempGemstones[k].randomPercent--;
               percentTotal--;
             }
           }
@@ -203,7 +206,6 @@ class GemstoneTreasureGenerator extends Component {
               const re = /-?\d+/;
               if ((e.target.value !== '' || e.target.value !== null) && re.test(e.target.value)) {
                 if (e.target.value.length > 1 && (e.target.value[0] === 0 || e.target.value[0] === "0")) {
-                  console.log("here");
                   let inputValue = e.target.value;
                   let newInput = inputValue.slice(1);
                   e.target.value = newInput;
@@ -228,9 +230,7 @@ class GemstoneTreasureGenerator extends Component {
       )
     selectors.push(div);
     }
-    console.log("selectors: ", selectors);
-    this.state.gemPercentageSelectors = selectors;
-    this.setState({gemPercentageSelectors: this.state.gemPercentageSelectors});
+    this.setState({gemPercentageSelectors: selectors});
   }
 
   createGemSelectors = () => {
@@ -245,7 +245,7 @@ class GemstoneTreasureGenerator extends Component {
           <div className="quantitySelect">
             <input className="quantityInput" type="number" defaultValue={gv.gemQuantity}
             onChange={(e) => {
-              this.updateTreasureQuantity(gv.gemValue, parseInt(e.target.value));
+              this.updateTreasureQuantity(gv.gemValue, parseInt(e.target.value, 10));
             }}
             />
           </div>
@@ -261,8 +261,7 @@ class GemstoneTreasureGenerator extends Component {
       );
       selectors.push(div);
     }
-    this.state.gemValueSelectors = selectors;
-    this.setState({gemValueSelectors: this.state.gemValueSelectors});
+    this.setState({gemValueSelectors: selectors});
   }
 
   getAllGemstones = () => {
@@ -276,6 +275,7 @@ class GemstoneTreasureGenerator extends Component {
       if (gemstone.cost.quantity === gemValue) {
         currentGems.push(gemstone);
       }
+      return null;
     });
     let randomGemID = componentProperties.rollDie({sides: currentGems.length});
 
@@ -361,8 +361,7 @@ class GemstoneTreasureGenerator extends Component {
         }
       }
     }
-    this.state.treasure = treasure;
-    this.setState({treasure: this.state.treasure});
+    this.setState({treasure: treasure});
 
     if (treasure.length !== 0) {
       this.props.addMessageToStream(this.displayTreasureMessage(treasure));
@@ -371,15 +370,17 @@ class GemstoneTreasureGenerator extends Component {
   }
 
   toggleRandomDropDown = () => {
-    if (this.state.gemPercentagePanelVisible) {
-      this.state.gemPercentagePanelVisible = false;
-      this.state.styleRandomDropDown = {maxHeight: "0"}
+    let gemPVisible = this.state.gemPercentagePanelVisible;
+    let styleSetting = this.state.styleRandomDropDown;
+    if (gemPVisible) {
+      gemPVisible = false;
+      styleSetting = {maxHeight: "0"}
     } else {
-      this.state.gemPercentagePanelVisible = true;
-      this.state.styleRandomDropDown = {maxHeight: "200px"}
+      gemPVisible = true;
+      styleSetting = {maxHeight: "200px"}
     }
-    this.setState({gemPercentagePanelVisible: this.state.gemPercentagePanelVisible});
-    this.setState({styleRandomDropDown: this.state.styleRandomDropDown});
+    this.setState({gemPercentagePanelVisible: gemPVisible});
+    this.setState({styleRandomDropDown: styleSetting});
   }
 
   resetTreasure = (e) => {
@@ -393,18 +394,22 @@ class GemstoneTreasureGenerator extends Component {
     console.log("this.state.gemstones: ", this.state.gemstones);
     console.log("this.state.treasureSelected: ", this.state.treasureSelected);
 
-    for (var i = 0; i < this.state.gemstones.length; i++) {
-      this.state.gemstones[i].gemQuantity = 0;
-      this.state.gemstones[i].isMixed = false;
-      this.state.gemstones[i].randomPercent = 0;
-      this.setState({gemstones: this.state.gemstones});
+    let tempGemstones = this.state.gemstones;
+
+    for (var i = 0; i < tempGemstones.length; i++) {
+      tempGemstones[i].gemQuantity = 0;
+      tempGemstones[i].isMixed = false;
+      tempGemstones[i].randomPercent = 0;
+      this.setState({gemstones: tempGemstones});
     }
 
-    this.state.treasureSelected.length = 0;
-    this.setState({treasureSelected: this.state.treasureSelected});
+    let tempGemArray = this.state.treasureSelected;
+    tempGemArray.length = 0;
+    this.setState({treasureSelected: tempGemArray});
 
-    this.state.gemValueSelectors.length = 0;
-    this.setState({gemValueSelectors: this.state.gemValueSelectors});
+    let tempSelectorArray = this.state.gemValueSelectors;
+    tempSelectorArray.length = 0;
+    this.setState({gemValueSelectors: tempSelectorArray});
 
     console.log("this.state.gemValueSelectors: ", this.state.gemValueSelectors);
     console.log("this.state.gemstones: ", this.state.gemstones);
@@ -434,7 +439,8 @@ class GemstoneTreasureGenerator extends Component {
               Generate <i className="fa fa-share-square-o generateIcon" aria-hidden="true"></i>
             </div>
             <div className="gemstoneResetButton" onClick={(e) => {
-                this.resetTreasure(e);
+                console.log("In reset click");
+                // this.resetTreasure(e);
               }
             } style={{color: "red"}}>
               Reset
@@ -488,6 +494,7 @@ class GemstoneTreasureGenerator extends Component {
             </div>
           </div>
         </div>
+        <div className="clear"></div>
       </div>
     );
   }
