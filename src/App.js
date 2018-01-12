@@ -6,7 +6,6 @@ import Equipment from './components/Equipment.js';
 import AllDicePanel from './components/AllDicePanel.js';
 import TheFeed from './components/theFeed/TheFeed.js';
 import GemstoneTreasureGenerator from './components/dmTools/gemstoneTreasureGenerator.js';
-import GemMatcher from './components/miniGames/gemMatcher.js';
 
 
 class App extends Component {
@@ -68,10 +67,6 @@ class App extends Component {
         <div>
           <button onClick={this._addNotification}>Add notification</button>
           <NotificationSystem ref="notificationSystem" style={this.setNewStyles()} />
-        </div>
-        <div className="">
-          <GemMatcher addMessageToStream={this.addMessageToStream} />
-          {/* <div className="clear"></div> */}
         </div>
         <div className="appFeedPanel">
           <TheFeed messages={this.state.messages} />
