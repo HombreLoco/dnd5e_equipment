@@ -438,13 +438,13 @@ class GemstoneTreasureGenerator extends Component {
             }>
               Generate <i className="fa fa-share-square-o generateIcon" aria-hidden="true"></i>
             </div>
-            <div className="gemstoneResetButton" onClick={(e) => {
+            {/* <div className="gemstoneResetButton" onClick={(e) => {
                 console.log("In reset click");
                 // this.resetTreasure(e);
               }
             } style={{color: "red"}}>
               Reset
-            </div>
+            </div> */}
             <div className="clear"></div>
             <div className="dividerLine"></div>
             <div className="selectGemSection">

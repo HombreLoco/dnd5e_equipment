@@ -64,25 +64,30 @@ class App extends Component {
   render() {
     return (
       <div className="fullAppWindow">
-        <div>
-          <button onClick={this._addNotification}>Add notification</button>
-          <NotificationSystem ref="notificationSystem" style={this.setNewStyles()} />
+        <div className="appHeaderSection">
+          
         </div>
-        <div className="appFeedPanel">
-          <TheFeed messages={this.state.messages} />
-          {/* <div className="clear"></div> */}
-        </div>
-        <div className="appGemGeneratorPanel">
-          <GemstoneTreasureGenerator addMessageToStream={this.addMessageToStream} initializeGemstoneTreasureGenerator={this.initializeGemstoneTreasureGenerator}/>
-          {/* <div className="clear"></div> */}
-        </div>
-        <div className="appDicePanel">
-          <AllDicePanel addMessageToStream={this.addMessageToStream} />
-          {/* <div className="clear"></div> */}
-        </div>
-        <div className="appEquipmentPanel">
-          <Equipment />
-          {/* <div className="clear"></div> */}
+        <div className="appBodySection">
+          <div>
+            <button onClick={this._addNotification}>Add notification</button>
+            <NotificationSystem ref="notificationSystem" style={this.setNewStyles()} />
+          </div>
+          <div className="appFeedPanel">
+            <TheFeed messages={this.state.messages} />
+            {/* <div className="clear"></div> */}
+          </div>
+          <div className="appGemGeneratorPanel">
+            <GemstoneTreasureGenerator addMessageToStream={this.addMessageToStream} initializeGemstoneTreasureGenerator={this.initializeGemstoneTreasureGenerator}/>
+            {/* <div className="clear"></div> */}
+          </div>
+          <div className="appDicePanel">
+            <AllDicePanel addMessageToStream={this.addMessageToStream} />
+            {/* <div className="clear"></div> */}
+          </div>
+          <div className="appEquipmentPanel">
+            <Equipment />
+            {/* <div className="clear"></div> */}
+          </div>
         </div>
       </div>
     );
